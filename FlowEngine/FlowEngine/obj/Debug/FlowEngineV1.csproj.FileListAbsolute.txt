@@ -1,0 +1,6 @@
+C:\Users\AMKozhevnikov\Source\Repos\FE\FlowEngine\FlowEngine\obj\Debug\FlowEngineV1.csproj.CoreCompileInputs.cache
+C:\Users\AMKozhevnikov\Source\Repos\FE\FlowEngine\FlowEngine\bin\Debug\FlowEngineV1.exe.config
+C:\Users\AMKozhevnikov\Source\Repos\FE\FlowEngine\FlowEngine\bin\Debug\FlowEngineV1.exe
+C:\Users\AMKozhevnikov\Source\Repos\FE\FlowEngine\FlowEngine\bin\Debug\FlowEngineV1.pdb
+C:\Users\AMKozhevnikov\Source\Repos\FE\FlowEngine\FlowEngine\obj\Debug\FlowEngineV1.exe
+C:\Users\AMKozhevnikov\Source\Repos\FE\FlowEngine\FlowEngine\obj\Debug\FlowEngineV1.pdb

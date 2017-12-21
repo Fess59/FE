@@ -1,0 +1,11 @@
+<div class="item item_list.*id=\"([\s,\S,\n]*?)\".*type=\"([\s,\S,\n]*?)\"[\s,\S,\n]*?<div class="price">[\s,\S,\n]*?<p>([\s,\S,\n]*?)</p>[\s,\S,\n]*?photo\">([\s,\S,\n]*?)</div>[\s,\S,\n]*?<div class="data  ">([\s,\S,\n]*?)</div>[\s,\S,\n]*?id=\"(.*?)\".*?href=\"(.*?)\".*?title=\"(.*?)\">(.*?)</a>[\s,\S,\n]*?<span class="date">([\s,\S,\n]*?)</span>[\s,\S,\n]*?<span class="c-2">(.*?)</span>
+<div class="title-info-metadata-item[\s,\S,\n]*?}'>([\s,\S,\n]*?)</a>[\s,\S,\n]*?<div class="item-description">[\s,\S,\n]*?<p>([\s,\S,\n]*?)</div>
+
+
+
+<div class="item item_list.*id="(.*?)".*type="(.*?)"[\s,\S,\n]*?<div class="price">.*?<p>([\s,\S,\n]*?)</p>[\s,\S,\n]*?photo\">([\s,\S,\n]*?)</div>[\s,\S,\n]*?class="data[\s,\S,\n]*?>([\s,\S,\n]*?)</div>[\s,\S,\n]*?id=\"(.*?)\".*?href=\"(.*?)\".*?title=\"(.*?)\">(.*?)</a>[\s,\S,\n]*?<span class="date">([\s,\S,\n]*?)</span>[\s,\S,\n]*?[\s,\S,\n]*?(.*?)</div>
+
+Matches
+\b(\d{1,3}\.){3}\d{1,3}\:\d{1,8}\b
+FullCheck
+^\b(\d{1,3}\.){3}\d{1,3}\:\d{1,8}\b$
