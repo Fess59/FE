@@ -41,8 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FakeFlowSystem.cs" />
-    <Compile Include="FakeFlow.cs" />
     <Compile Include="FakeApplicationData.cs" />
     <Compile Include="Flow\FlowHelper.cs" />
     <Compile Include="Flow\Models\ApplicationCard.cs" />
@@ -60,7 +58,7 @@
     <Compile Include="_2_BLL\IOC\IOContainer.cs" />
     <Compile Include="_2_BLL\IOC\IOCElement.cs" />
     <Compile Include="Flow\Container\FlowEventElement.cs" />
-    <Compile Include="Flow\Container\ContainerFlow.cs" />
+    <Compile Include="Flow\Container\FlowEventContainer.cs" />
     <Compile Include="_2_BLL\Cryptography.cs" />
     <Compile Include="_2_BLL\Logger.cs" />
   </ItemGroup>

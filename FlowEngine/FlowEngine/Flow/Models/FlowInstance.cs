@@ -12,19 +12,20 @@ namespace FlowEngineV1.Flow.Models
     public class FlowInstance : FlowObject
     {
         public Guid EventId { get; set; }
+        public string EventUID { get; set; }
         public int Stage { get; set; }
         public bool Complete { get; set; }
         public string Value { get; set; }
 
-        public static FlowInstance New(Guid eventId, int value)
+        public static FlowInstance New(string eventUID, int value)
         {
-            return New(eventId, value.ToString());
+            return New(eventUID, value.ToString());
         }
-        public static FlowInstance New(Guid eventId, string value)
+        public static FlowInstance New(string eventUID, string value)
         {
             return new FlowInstance()
             {
-                EventId = eventId,
+                EventUID = eventUID,
                 Stage = 0,
                 Value = value
             };

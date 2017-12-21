@@ -1,4 +1,5 @@
-﻿using FlowEngineV1.Flow.Models;
+﻿using FlowEngine.Tools.Container;
+using FlowEngineV1.Flow.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,12 @@ namespace FlowEngineV1.Flow
     {
         //Core DB
         public static ApplicationCard Application = new ApplicationCard() { Name = "BEST Application" };
-
-
         public static List<FlowEvent> EventList = new List<FlowEvent>();
+
+        //Memory data
+        public static FlowEventContainer EventContainer { get; set; }
+
+
         public static List<FlowActivity> ActivityList = new List<FlowActivity>();
         public static List<FlowProperty> PropertyList = new List<FlowProperty>();
         public static List<FlowActivityCondition> ActivityConditionList = new List<FlowActivityCondition>();
@@ -27,8 +31,10 @@ namespace FlowEngineV1.Flow
         {
             //Эвент 1
             //Список эвентов в базе
-            var eventFirst = FlowEvent.New(Events.FirstEvent.ToString());
+            var eventFirst = FlowEvent.New(Events.FirstEvent.ToString(), Events.FirstEvent.ToString());
             EventList.Add(eventFirst);
+            EventContainer = FlowEventContainer.New(EventList);
+
 
             //Создаём дата сет для эвента
             var propertyIterationCount = FlowProperty.New(Application.Id, "Количество итераций", FlowPropertyType.Int32);

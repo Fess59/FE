@@ -1,4 +1,5 @@
-﻿using FlowEngineV1.Flow;
+﻿using FlowEngine.Tools.Container;
+using FlowEngineV1.Flow;
 using FlowEngineV1.Flow.Models;
 using System;
 using System.Collections.Generic;
@@ -50,12 +51,13 @@ namespace FlowEngineV1
             //    FakeFlow.FirstEvent(firstInstance);
             //    firstInstance.Value += 1;
             //}
-            var firstEvent = FakeApplicationData.EventList.FirstOrDefault(q => q.Name == Events.FirstEvent.ToString());
-            var secondInstance = FlowInstance.New(firstEvent.Id, 0);
+
+            var firstEvent = FakeApplicationData.EventList.FirstOrDefault(q => q.UID == Events.FirstEvent.ToString());
+            var secondInstance = FlowInstance.New(firstEvent.UID, 0);
             while (!secondInstance.Complete)
             {
                 Thread.Sleep(1000);
-                FakeFlowSystem.Execute(secondInstance);
+                FakeApplicationData.EventContainer.Execute(secondInstance);
                 secondInstance.Value = (int.Parse(secondInstance.Value) + 1).ToString();
             }
             FakeApplicationData.FlowInstances.Add(secondInstance);

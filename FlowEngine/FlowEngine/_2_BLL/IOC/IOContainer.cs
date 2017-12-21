@@ -72,7 +72,7 @@ namespace FlowEngineV1.Tools.Container
             foreach (var item in collection)
             {
                 if (Collection.Any(q => q.UID == item.UID))
-                    throw new Exception("ContainerBase.Addrange повторяющийся элемент в контейнере");
+                    throw new Exception("ContainerBase.AddRange повторяющийся элемент в контейнере");
                 Collection.Add(item);
             }
         }

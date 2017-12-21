@@ -11,11 +11,12 @@ namespace FlowEngineV1.Flow.Models
     /// </summary>
     public class FlowEvent : FlowObject
     {
-        public static FlowEvent New(string name, string description = "")
+        public static FlowEvent New(string name, string uid, string description = "")
         {
             return new FlowEvent()
             {
                 Name = name,
+                UID = uid,
                 Description = description
             };
         }
