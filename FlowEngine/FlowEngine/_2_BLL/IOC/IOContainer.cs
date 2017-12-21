@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 namespace FlowEngineV1.Tools.Container
 {
     /// <summary>
-    /// Базовый класс контейнера - контейнер ициализируются единожды и используется на чтение
+    /// Базовый контейнера для хранения и повторного использования объектов
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class IOContainer<T> : BaseObject where T : IOCElement, new()
+    public class IOContainer<T> : BaseObject where T : IOCElement
     {
         #region Property
         private List<T> Collection = new List<T>();
@@ -72,7 +72,7 @@ namespace FlowEngineV1.Tools.Container
             foreach (var item in collection)
             {
                 if (Collection.Any(q => q.UID == item.UID))
-                    throw new Exception("ContainerBase.AddRange повторяющийся элемент в контейнере");
+                    throw new ExceptionFlowIOContainer("AddRange","Элемент с указанным UID уже был добавлен");
                 Collection.Add(item);
             }
         }

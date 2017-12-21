@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace FlowEngineV1.Tools.Container
 {
-    public class IOCElement : BaseObject
+    /// <summary>
+    /// Базовый элемент контейнера для хранения и повторного использования объектов
+    /// </summary>
+    public class IOCElement: BaseObject
     {
         /// <summary>
         /// Уникальный ключ элемента контейнера

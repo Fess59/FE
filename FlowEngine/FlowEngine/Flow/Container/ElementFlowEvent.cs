@@ -10,84 +10,86 @@ using System.Threading.Tasks;
 
 namespace FlowEngine.Tools.Container
 {
-    public class FlowEventElement : IOCElement
+    public class ElementFlowEvent : IOCElementExecute<FlowEvent, FlowInstance>
     {
-        public FlowEvent Event { get; private set; }
-        public FlowEventElement(FlowEvent _event)
+        public ElementFlowEvent(FlowEvent element) : base(element)
         {
-            Event = _event;
-            UID = Event.UID;
         }
-        public FlowEventElement()
+        public override string GetUID(FlowEvent element)
         {
-
+            return element.UID;
         }
-        public void Execute(FlowInstance instance)
+        public override bool Execute(FlowInstance element)
         {
+            var result = false;
             try
             {
-                var logText = $"V={instance.Value}";
-                if (instance.Complete)
+                var logText = $"V={element.Value}";
+                if (element.Complete)
                 {
-                    logText += $" Stage={instance.Stage} FlowInstance already complete";
+                    logText += $" Stage={element.Stage} FlowInstance already complete";
                     Logger.SendMessage(logText);
-                    return;
+                    return result;
                 }
-                var stage = FakeApplicationData.ActivityList.FirstOrDefault(q => q.Stage == instance.Stage + 1);
+                var stage = FakeApplicationData.ActivityList.FirstOrDefault(q => q.Stage == element.Stage + 1);
                 if (stage == null)
-                    throw new NullReferenceException($"При обработке инстанции {instance.Id} не смогли найти следующий шаг или финальный метод");
+                    throw new NullReferenceException($"При обработке инстанции {element.Id} не смогли найти следующий шаг или финальный метод");
                 logText += $" Stage={stage.Stage}";
                 //Light realization
                 var conditions = FakeApplicationData.ActivityConditionList.Where(q => q.ActivityId == stage.Id);
 
                 var conditionGroups = conditions.GroupBy(q => new { q.ActivityId, q.GroupConditionType, q.GroupPriority });
                 if (!conditionGroups.Any())
-                    throw new NullReferenceException($"При обработке шагов инстанции возникает ошибка {instance.Id}, не удалось найти следующий шаг или финальный метод");
+                    throw new NullReferenceException($"При обработке шагов инстанции возникает ошибка {element.Id}, не удалось найти следующий шаг или финальный метод");
                 conditionGroups = conditionGroups.OrderBy(q => q.Key.GroupPriority).ThenBy(q => q.Key.GroupConditionType).ToArray();
                 var groupResults = new List<bool>();
                 foreach (var group in conditionGroups)
                 {
                     var results = new List<bool>();
                     foreach (var condition in group)
-                        results.Add(conditionExecute(instance, condition));
+                        results.Add(conditionExecute(element, condition));
                     logText += $" СonditionType={group.Key.GroupConditionType}";
-                    switch (group.Key.GroupConditionType)
-                    {
-                        case ActivityConditionGroupType.AND:
-                            if (results.Any(q => !q))
-                            {
-                                logText += $" ConditionCheck = NotSuccess";
-                                Logger.SendMessage(logText);
-                                return;
-                            }
-                            break;
-                        case ActivityConditionGroupType.OR:
-                            if (results.All(q => !q))
-                            {
-                                logText += $" ConditionCheck = NotSuccess";
-                                Logger.SendMessage(logText);
-                                return;
-                            }
-                            break;
-                        default:
-                            break;
-                    }
+                    var result = FakeApplicationData.
+                        ConditionGroupContainer
+                    //switch (group.Key.GroupConditionType)
+                    //{
+                    //    case ActivityConditionGroupType.AND:
+                    //        if (results.Any(q => !q))
+                    //        {
+                    //            logText += $" ConditionCheck = NotSuccess";
+                    //            Logger.SendMessage(logText);
+                    //            return result;
+                    //        }
+                    //        break;
+                    //    case ActivityConditionGroupType.OR:
+                    //        if (results.All(q => !q))
+                    //        {
+                    //            logText += $" ConditionCheck = NotSuccess";
+                    //            Logger.SendMessage(logText);
+                    //            return result;
+                    //        }
+                    //        break;
+                    //    default:
+                    //        break;
+                    //}
                 }
                 if (stage.ActivityType == FlowActivityType.End)
-                    instance.Complete = true;
+                    element.Complete = true;
                 logText += $" ConditionCheck = Success";
                 Logger.SendMessage(logText);
 
-                instance.Stage++;
+                element.Stage++;
+                result = true;
             }
             catch (Exception ex)
             {
                 Logger.SendMessage(ex.ToString());
             }
+            return result;
         }
-        public static FlowEventElement New(FlowEvent obj)
+        public static ElementFlowEvent New(FlowEvent obj)
         {
-            return new FlowEventElement(obj);
+            return new ElementFlowEvent(obj);
         }
 
 

@@ -42,6 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FakeApplicationData.cs" />
+    <Compile Include="Flow\Container\ConditionGroupContainer\OR.cs" />
+    <Compile Include="Flow\Container\ConditionGroupContainer\AND.cs" />
+    <Compile Include="Flow\Container\ContainerConditionGroup.cs" />
+    <Compile Include="Flow\Container\ElementConditionGroup.cs" />
+    <Compile Include="Flow\ExceptionHelper.cs" />
     <Compile Include="Flow\FlowHelper.cs" />
     <Compile Include="Flow\Models\ApplicationCard.cs" />
     <Compile Include="_1_DAL\BaseEntityObejct.cs" />
@@ -55,10 +60,12 @@
     <Compile Include="Flow\Models\FlowProperty.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_2_BLL\IOC\IOCElementExecute.cs" />
+    <Compile Include="_2_BLL\IOC\IOContainerExecute.cs" />
     <Compile Include="_2_BLL\IOC\IOContainer.cs" />
     <Compile Include="_2_BLL\IOC\IOCElement.cs" />
-    <Compile Include="Flow\Container\FlowEventElement.cs" />
-    <Compile Include="Flow\Container\FlowEventContainer.cs" />
+    <Compile Include="Flow\Container\ElementFlowEvent.cs" />
+    <Compile Include="Flow\Container\ContainerFlowEvent.cs" />
     <Compile Include="_2_BLL\Cryptography.cs" />
     <Compile Include="_2_BLL\Logger.cs" />
   </ItemGroup>

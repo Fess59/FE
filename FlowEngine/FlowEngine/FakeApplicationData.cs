@@ -1,4 +1,5 @@
 ﻿using FlowEngine.Tools.Container;
+using FlowEngineV1.Flow.Container;
 using FlowEngineV1.Flow.Models;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,8 @@ namespace FlowEngineV1.Flow
         public static List<FlowEvent> EventList = new List<FlowEvent>();
 
         //Memory data
-        public static FlowEventContainer EventContainer { get; set; }
+        public static ContainerFlowEvent EventContainer { get; set; }
+        public static ContainerConditionGroup ConditionGroupContainer = ContainerConditionGroup.New();
 
 
         public static List<FlowActivity> ActivityList = new List<FlowActivity>();
@@ -33,7 +35,7 @@ namespace FlowEngineV1.Flow
             //Список эвентов в базе
             var eventFirst = FlowEvent.New(Events.FirstEvent.ToString(), Events.FirstEvent.ToString());
             EventList.Add(eventFirst);
-            EventContainer = FlowEventContainer.New(EventList);
+            EventContainer = ContainerFlowEvent.New(EventList);
 
 
             //Создаём дата сет для эвента
