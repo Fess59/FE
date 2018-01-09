@@ -1,4 +1,5 @@
-﻿using FlowEngineV1.Flow.Models;
+﻿using FlowEngineV1._2_BLL.IOC;
+using FlowEngineV1.Flow.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,9 @@ namespace FlowEngineV1.Tools.Container
     /// </summary>
     /// <typeparam name="TElement">Element type</typeparam>
     /// <typeparam name="TParam">Execute param type</typeparam>
-    public class IOContainerExecute<TIOCType, TElement, TParam> : IOContainer<TIOCType> where TIOCType : IOCElementExecute<TElement, TParam>
+    public class IOContainerExecute<TIOCType, TElement, TParam> : IOContainer<TIOCType> 
+        where TIOCType : IOCElementExecute<TElement, TParam>
+        where TParam : IOCElementExecuteParams
     {
         #region Constructor
         /// <summary>
@@ -44,10 +47,9 @@ namespace FlowEngineV1.Tools.Container
             var result = false;
             if (obj == null)
                 throw new NullReferenceException($"IOContainerExecute {ContainerName} Параметр не может быть NULL");
-            var uid = GetUID(obj);
-            if (string.IsNullOrWhiteSpace(uid))
+            if (string.IsNullOrWhiteSpace(obj.UID))
                 throw new NullReferenceException("Уникальный ключ UID не может быть пустым");
-            var e = GetByName(uid);
+            var e = GetByName(obj.UID);
             if (e == null)
             {
                 //TODO #25 здесь генератор Event'ов

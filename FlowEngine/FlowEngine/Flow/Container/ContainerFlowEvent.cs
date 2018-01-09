@@ -1,4 +1,5 @@
 ﻿using FlowEngineV1;
+using FlowEngineV1.Flow.Container;
 using FlowEngineV1.Flow.Models;
 using FlowEngineV1.Tools.Container;
 using System;
@@ -13,12 +14,12 @@ namespace FlowEngine.Tools.Container
     /// Контейнер для службы или инстанции FlowEngine
     /// Предназначен для формирования на лету
     /// </summary>
-    public class ContainerFlowEvent : IOContainerExecute<ElementFlowEvent, FlowEvent, FlowInstance>
+    public class ContainerFlowEvent : IOContainerExecute<ElementFlowEvent, FlowEvent, ParamsFlowElement>
     {
         #region Methods
-        public override string GetUID(FlowInstance obj)
+        public bool Execute(FlowInstance instance)
         {
-            return obj.EventUID;
+            return Execute(ParamsFlowElement.New(instance));
         }
         #endregion
         #region Static methods

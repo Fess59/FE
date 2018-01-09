@@ -1,5 +1,6 @@
 ﻿using FlowEngineV1;
 using FlowEngineV1.Flow;
+using FlowEngineV1.Flow.Container;
 using FlowEngineV1.Flow.Models;
 using FlowEngineV1.Tools.Container;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace FlowEngine.Tools.Container
 {
-    public class ElementFlowEvent : IOCElementExecute<FlowEvent, FlowInstance>
+    public class ElementFlowEvent : IOCElementExecute<FlowEvent, ParamsFlowElement>
     {
         public ElementFlowEvent(FlowEvent element) : base(element)
         {
@@ -19,11 +20,12 @@ namespace FlowEngine.Tools.Container
         {
             return element.UID;
         }
-        public override bool Execute(FlowInstance element)
+        public override bool Execute(ParamsFlowElement p)
         {
             var result = false;
             try
             {
+                var element = p.Value;
                 var logText = $"V={element.Value}";
                 if (element.Complete)
                 {
@@ -47,31 +49,15 @@ namespace FlowEngine.Tools.Container
                 {
                     var results = new List<bool>();
                     foreach (var condition in group)
-                        results.Add(conditionExecute(element, condition));
+                    {
+                        var property = FakeApplicationData.PropertyList.FirstOrDefault(q => q.Id == condition.PropertyId);
+                        results.Add(FakeApplicationData.ContainerFlowPropertyType.Execute(element.Value, condition.PropertyValue, condition.PropertyConditionType, property.PropertyType));
+                    }
                     logText += $" СonditionType={group.Key.GroupConditionType}";
-                    var result = FakeApplicationData.
-                        ConditionGroupContainer
-                    //switch (group.Key.GroupConditionType)
-                    //{
-                    //    case ActivityConditionGroupType.AND:
-                    //        if (results.Any(q => !q))
-                    //        {
-                    //            logText += $" ConditionCheck = NotSuccess";
-                    //            Logger.SendMessage(logText);
-                    //            return result;
-                    //        }
-                    //        break;
-                    //    case ActivityConditionGroupType.OR:
-                    //        if (results.All(q => !q))
-                    //        {
-                    //            logText += $" ConditionCheck = NotSuccess";
-                    //            Logger.SendMessage(logText);
-                    //            return result;
-                    //        }
-                    //        break;
-                    //    default:
-                    //        break;
-                    //}
+                    result = FakeApplicationData.
+                        ContainerConditionGroup.Execute(group.Key.GroupConditionType, results);
+                    if (result)
+                        return result;
                 }
                 if (stage.ActivityType == FlowActivityType.End)
                     element.Complete = true;
@@ -90,82 +76,6 @@ namespace FlowEngine.Tools.Container
         public static ElementFlowEvent New(FlowEvent obj)
         {
             return new ElementFlowEvent(obj);
-        }
-
-
-
-
-
-
-
-
-
-
-        private static bool conditionExecute(FlowInstance instance, FlowActivityCondition condition)
-        {
-            var result = false;
-            try
-            {
-                var property = FakeApplicationData.PropertyList.FirstOrDefault(q => q.Id == condition.PropertyId);
-                switch (property.PropertyType)
-                {
-                    case FlowPropertyType.String:
-                        result = StringCompare(condition.PropertyConditionType, condition.PropertyValue, instance.Value);
-                        break;
-                    case FlowPropertyType.Int32:
-                        result = IntCompare(condition.PropertyConditionType, condition.PropertyValue, instance.Value);
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.SendMessage(ex.ToString());
-
-            }
-            return result;
-        }
-
-        private static bool StringCompare(ActivityConditionPropertyType type, string oldValue, string newValue)
-        {
-            var result = false;
-            try
-            {
-                switch (type)
-                {
-                    case ActivityConditionPropertyType.EQUALS:
-                        result = oldValue == newValue;
-                        break;
-                    default:
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.SendMessage(ex.ToString());
-            }
-            return result;
-        }
-        private static bool IntCompare(ActivityConditionPropertyType type, string oldValue, string newValue)
-        {
-            var result = false;
-            try
-            {
-                var oldValueInt = int.Parse(oldValue);
-                var newValueInt = int.Parse(newValue);
-                switch (type)
-                {
-                    case ActivityConditionPropertyType.EQUALS:
-                        result = oldValueInt == newValueInt;
-                        break;
-                    default:
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.SendMessage(ex.ToString());
-            }
-            return result;
         }
     }
 }

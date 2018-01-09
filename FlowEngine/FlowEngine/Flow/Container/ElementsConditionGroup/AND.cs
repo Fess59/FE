@@ -6,16 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 using FlowEngineV1.Flow.Models;
 
-namespace FlowEngineV1.Flow.Container.ConditionGroupContainer
+namespace FlowEngineV1.Flow.Container.ElementsConditionGroup
 {
     public class AND : ElementConditionGroup
     {
         public AND() : base(ActivityConditionGroupType.AND)
         {
         }
-        public override bool Execute(ActivityConditionGroupType obj)
+        public override bool Execute(ParamsConditionGroup obj)
         {
-            return base.Execute(obj);
+            var result = false;
+             if (obj.Value != null)
+                result = obj.Value.Any(q => !q); 
+            return result;
         }
     }
 }

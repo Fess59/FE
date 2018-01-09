@@ -1,5 +1,6 @@
 ﻿using FlowEngine.Tools.Container;
 using FlowEngineV1.Flow;
+using FlowEngineV1.Flow.Container;
 using FlowEngineV1.Flow.Models;
 using System;
 using System.Collections.Generic;
@@ -57,7 +58,7 @@ namespace FlowEngineV1
             while (!secondInstance.Complete)
             {
                 Thread.Sleep(1000);
-                FakeApplicationData.EventContainer.Execute(secondInstance);
+                FakeApplicationData.ContainerEvent.Execute(secondInstance);
                 secondInstance.Value = (int.Parse(secondInstance.Value) + 1).ToString();
             }
             FakeApplicationData.FlowInstances.Add(secondInstance);

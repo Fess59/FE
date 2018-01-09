@@ -42,9 +42,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FakeApplicationData.cs" />
-    <Compile Include="Flow\Container\ConditionGroupContainer\OR.cs" />
-    <Compile Include="Flow\Container\ConditionGroupContainer\AND.cs" />
+    <Compile Include="Flow\Container\ContainerFlowPropertyType.cs" />
+    <Compile Include="Flow\Container\ElementFlowPropertyType.cs" />
+    <Compile Include="Flow\Container\ElementsConditionGroup\OR.cs" />
+    <Compile Include="Flow\Container\ElementsConditionGroup\AND.cs" />
     <Compile Include="Flow\Container\ContainerConditionGroup.cs" />
+    <Compile Include="Flow\Container\ElementsFlowPropertyType\INT32.cs" />
+    <Compile Include="Flow\Container\ElementsFlowPropertyType\STRING.cs" />
+    <Compile Include="Flow\Container\ParamsFlowPropertyType.cs" />
+    <Compile Include="Flow\Container\ParamsFlowElement.cs" />
+    <Compile Include="Flow\Container\ParamsConditionGroup.cs" />
     <Compile Include="Flow\Container\ElementConditionGroup.cs" />
     <Compile Include="Flow\ExceptionHelper.cs" />
     <Compile Include="Flow\FlowHelper.cs" />
@@ -61,6 +68,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_2_BLL\IOC\IOCElementExecute.cs" />
+    <Compile Include="_2_BLL\IOC\IOCElementExecuteParams.cs" />
     <Compile Include="_2_BLL\IOC\IOContainerExecute.cs" />
     <Compile Include="_2_BLL\IOC\IOContainer.cs" />
     <Compile Include="_2_BLL\IOC\IOCElement.cs" />

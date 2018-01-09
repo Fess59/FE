@@ -1,5 +1,6 @@
 ﻿using FlowEngine.Tools.Container;
-using FlowEngineV1.Flow.Container.ConditionGroupContainer;
+using FlowEngineV1._2_BLL.IOC;
+using FlowEngineV1.Flow.Container.ElementsConditionGroup;
 using FlowEngineV1.Flow.Models;
 using FlowEngineV1.Tools.Container;
 using System;
@@ -10,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace FlowEngineV1.Flow.Container
 {
-    public class ContainerConditionGroup : IOContainerExecute<ElementConditionGroup, ActivityConditionGroupType, ActivityConditionGroupType>
+    public class ContainerConditionGroup : IOContainerExecute<ElementConditionGroup, ActivityConditionGroupType, ParamsConditionGroup>
     {
-        public override string GetUID(ActivityConditionGroupType obj)
+        public bool Execute(ActivityConditionGroupType type, IEnumerable<bool> value)
         {
-            return obj.ToString();
+            return Execute(ParamsConditionGroup.New(type, value));
         }
         public static ContainerConditionGroup New()
         {
@@ -24,4 +25,6 @@ namespace FlowEngineV1.Flow.Container
             return result;
         }
     }
+
+  
 }

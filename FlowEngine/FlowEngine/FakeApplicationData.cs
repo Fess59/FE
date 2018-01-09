@@ -16,9 +16,9 @@ namespace FlowEngineV1.Flow
         public static List<FlowEvent> EventList = new List<FlowEvent>();
 
         //Memory data
-        public static ContainerFlowEvent EventContainer { get; set; }
-        public static ContainerConditionGroup ConditionGroupContainer = ContainerConditionGroup.New();
-
+        public static ContainerFlowEvent ContainerEvent { get; set; }
+        public static ContainerConditionGroup ContainerConditionGroup = ContainerConditionGroup.New();
+        public static ContainerFlowPropertyType ContainerFlowPropertyType = ContainerFlowPropertyType.New();
 
         public static List<FlowActivity> ActivityList = new List<FlowActivity>();
         public static List<FlowProperty> PropertyList = new List<FlowProperty>();
@@ -35,7 +35,7 @@ namespace FlowEngineV1.Flow
             //Список эвентов в базе
             var eventFirst = FlowEvent.New(Events.FirstEvent.ToString(), Events.FirstEvent.ToString());
             EventList.Add(eventFirst);
-            EventContainer = ContainerFlowEvent.New(EventList);
+            ContainerEvent = ContainerFlowEvent.New(EventList);
 
 
             //Создаём дата сет для эвента

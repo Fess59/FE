@@ -11,15 +11,15 @@ using System.Threading.Tasks;
 
 namespace FlowEngine.Tools.Container
 {
-    public class ElementConditionGroup : IOCElementExecute<ActivityConditionGroupType, ParamsConditionGroup>
+    public class ElementFlowPropertyType : IOCElementExecute<FlowPropertyType, ParamsFlowPropertyType>
     {
         #region Constructor
-        public ElementConditionGroup(ActivityConditionGroupType element) : base(element)
+        public ElementFlowPropertyType(FlowPropertyType element) : base(element)
         {
         }
         #endregion
         #region Method
-        public override string GetUID(ActivityConditionGroupType element)
+        public override string GetUID(FlowPropertyType element)
         {
             return element.ToString();
         }

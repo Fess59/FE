@@ -1,4 +1,5 @@
-﻿using FlowEngineV1.Flow.Models;
+﻿using FlowEngineV1._2_BLL.IOC;
+using FlowEngineV1.Flow.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,8 @@ namespace FlowEngineV1.Tools.Container
     /// </summary>
     /// <typeparam name="T">Тип родительского объекта</typeparam>
     /// <typeparam name="T">Тип испольняемого объекта</typeparam>
-    public class IOCElementExecute<TElement, TParam>: IOCElement
+    public class IOCElementExecute<TElement, TParam>: IOCElement 
+        where TParam : IOCElementExecuteParams
     {
         public TElement Element { get; set; }
         public IOCElementExecute(TElement element)
