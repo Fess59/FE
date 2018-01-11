@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlowEngineV1.Tools.Container
+namespace FlowEngineV1._2_BLL.IOC
 {
     /// <summary>
     /// Базовый контейнера для хранения логики и обработки на основе входящего параметра
@@ -42,6 +42,11 @@ namespace FlowEngineV1.Tools.Container
         }
         #endregion
         #region Methods
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public bool Execute(TParam obj)
         {
             var result = false;

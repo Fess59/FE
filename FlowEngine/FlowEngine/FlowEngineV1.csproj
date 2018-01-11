@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\FlowEngineV1.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -42,17 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FakeApplicationData.cs" />
-    <Compile Include="Flow\Container\ContainerFlowPropertyType.cs" />
-    <Compile Include="Flow\Container\ElementFlowPropertyType.cs" />
-    <Compile Include="Flow\Container\ElementsConditionGroup\OR.cs" />
-    <Compile Include="Flow\Container\ElementsConditionGroup\AND.cs" />
-    <Compile Include="Flow\Container\ContainerConditionGroup.cs" />
-    <Compile Include="Flow\Container\ElementsFlowPropertyType\INT32.cs" />
-    <Compile Include="Flow\Container\ElementsFlowPropertyType\STRING.cs" />
-    <Compile Include="Flow\Container\ParamsFlowPropertyType.cs" />
-    <Compile Include="Flow\Container\ParamsFlowElement.cs" />
-    <Compile Include="Flow\Container\ParamsConditionGroup.cs" />
-    <Compile Include="Flow\Container\ElementConditionGroup.cs" />
+    <Compile Include="Flow\Containers\ContainerFlowPropertyType.cs" />
+    <Compile Include="Flow\Containers\ElementFlowPropertyType.cs" />
+    <Compile Include="Flow\Containers\ElementsConditionGroup\OR.cs" />
+    <Compile Include="Flow\Containers\ElementsConditionGroup\AND.cs" />
+    <Compile Include="Flow\Containers\ContainerConditionGroup.cs" />
+    <Compile Include="Flow\Containers\ElementsFlowPropertyType\INT32.cs" />
+    <Compile Include="Flow\Containers\ElementsFlowPropertyType\STRING.cs" />
+    <Compile Include="Flow\Containers\ParamsFlowPropertyType.cs" />
+    <Compile Include="Flow\Containers\ParamsFlowElement.cs" />
+    <Compile Include="Flow\Containers\ParamsConditionGroup.cs" />
+    <Compile Include="Flow\Containers\ElementConditionGroup.cs" />
     <Compile Include="Flow\ExceptionHelper.cs" />
     <Compile Include="Flow\FlowHelper.cs" />
     <Compile Include="Flow\Models\ApplicationCard.cs" />
@@ -72,8 +73,8 @@
     <Compile Include="_2_BLL\IOC\IOContainerExecute.cs" />
     <Compile Include="_2_BLL\IOC\IOContainer.cs" />
     <Compile Include="_2_BLL\IOC\IOCElement.cs" />
-    <Compile Include="Flow\Container\ElementFlowEvent.cs" />
-    <Compile Include="Flow\Container\ContainerFlowEvent.cs" />
+    <Compile Include="Flow\Containers\ElementFlowEvent.cs" />
+    <Compile Include="Flow\Containers\ContainerFlowEvent.cs" />
     <Compile Include="_2_BLL\Cryptography.cs" />
     <Compile Include="_2_BLL\Logger.cs" />
   </ItemGroup>

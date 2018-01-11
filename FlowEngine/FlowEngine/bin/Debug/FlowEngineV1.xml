@@ -1,0 +1,301 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FlowEngineV1</name>
+    </assembly>
+    <members>
+        <member name="M:FlowEngineV1.Flow.Containers.ContainerFlowPropertyType.Execute(System.String,System.String,FlowEngineV1.Flow.Models.ActivityConditionPropertyType,FlowEngineV1.Flow.Models.FlowPropertyType)">
+             <summary>   Executes. </summary>
+            
+             <remarks>   AM Kozhevnikov, 10.01.2018. </remarks>
+            
+             <param name="newValue">         The new value. </param>
+             <param name="oldValue">         The old value. </param>
+             <param name="conditionType">    Type of the condition. </param>
+             <param name="propertyType">     Type of the property. </param>
+            
+             <returns>   True if it succeeds, false if it fails. </returns>
+        </member>
+        <member name="M:FlowEngineV1.Flow.Containers.ContainerFlowPropertyType.New">
+             <summary>   Gets the new. </summary>
+            
+             <remarks>   AM Kozhevnikov, 10.01.2018. </remarks>
+            
+             <returns>   A ContainerFlowPropertyType. </returns>
+        </member>
+        <member name="T:FlowEngineV1.Flow.Models.ApplicationCard">
+            <summary>
+            Карточка приложения выполняющего запросы
+            </summary>
+        </member>
+        <member name="P:FlowEngineV1.Flow.Models.ApplicationCard.Name">
+            <summary>
+            Наименование приложения
+            </summary>
+        </member>
+        <member name="P:FlowEngineV1.Flow.Models.ApplicationCard.HasBlocked">
+            <summary>
+            Признак блокировки
+            </summary>
+        </member>
+        <member name="T:FlowEngineV1.Flow.Models.FlowActivityCondition">
+            <summary>
+            Описание операции сравнения  тип сравнения значения и финальный
+            </summary>
+        </member>
+        <member name="P:FlowEngineV1.Flow.Models.FlowActivityCondition.GroupPriority">
+            <summary>
+            Приоритет выполнения
+            </summary>
+        </member>
+        <member name="P:FlowEngineV1.Flow.Models.FlowActivityCondition.GroupConditionType">
+            <summary>
+            Тип сравнения AND, OR и т.д.
+            </summary>
+        </member>
+        <!-- Проигнорирован некорректный комментарий XML для члена "P:FlowEngineV1.Flow.Models.FlowActivityCondition.PropertyConditionType" -->
+        <member name="P:FlowEngineV1.Flow.Models.FlowActivityCondition.PropertyValue">
+            <summary>
+            Занчение с которым сравниваем
+            </summary>
+        </member>
+        <member name="P:FlowEngineV1.Flow.Models.FlowActivityCondition.PropertyId">
+            <summary>
+            Идентификатор указывающий на тип объекта для сравнения
+            </summary>
+        </member>
+        <member name="T:FlowEngineV1.Flow.Models.FlowEvent">
+            <summary>
+            Точка входу в систему Flow
+            </summary>
+        </member>
+        <member name="T:FlowEngineV1.Flow.Models.FlowObject">
+            <summary>
+            Базовый объект Flow системы
+            </summary>
+        </member>
+        <member name="P:FlowEngineV1.Flow.Models.FlowObject.ApplicationId">
+            <summary>
+            Идентификатор приложения вызвавшего данный запрос
+            </summary>
+        </member>
+        <member name="P:FlowEngineV1.Flow.Models.FlowObject.UID">
+            <summary>
+            Уникальный ключ идентификации в системе - закриптованная строка с помощью SHA512(Application.Name + "_" +  FlowEvent.Name)
+            </summary>
+        </member>
+        <member name="P:FlowEngineV1.Flow.Models.FlowObject.Name">
+            <summary>
+            Необязательное поле наименования
+            </summary>
+        </member>
+        <member name="P:FlowEngineV1.Flow.Models.FlowObject.Description">
+            <summary>
+            Необязательное поле описания
+            </summary>
+        </member>
+        <member name="T:FlowEngineV1.Flow.Models.FlowInstance">
+            <summary>
+            Инстация запроса отправленного на сервер
+            </summary>
+        </member>
+        <member name="T:FlowEngineV1.Flow.Models.FlowProperty">
+            <summary>
+            Свойство подключенное к проекту, на базе описания которого генерируеться логика сравнения для активности и марштрутизатора потоков
+            </summary>
+        </member>
+        <member name="T:FlowEngineV1.Tools.Containers.ContainerFlowEvent">
+            <summary>
+            Контейнер для службы или инстанции FlowEngine
+            Предназначен для формирования на лету
+            </summary>
+        </member>
+        <member name="M:FlowEngineV1.Tools.Containers.ContainerFlowEvent.Execute(FlowEngineV1.Flow.Models.FlowInstance)">
+            <summary>   Executes the given instance. </summary>
+            <remarks>   AM Kozhevnikov, 10.01.2018. </remarks>
+            <param name="instance"> The instance. </param>
+            <returns>   True if it succeeds, false if it fails. </returns>
+        </member>
+        <member name="M:FlowEngineV1.Tools.Containers.ContainerFlowEvent.New(System.Collections.Generic.IEnumerable{FlowEngineV1.Flow.Models.FlowEvent})">
+             <summary>   News the given events. </summary>
+            
+             <remarks>   AM Kozhevnikov, 10.01.2018. </remarks>
+            
+             <param name="events">   The events. </param>
+            
+             <returns>   A ContainerFlowEvent. </returns>
+              <example>
+             This sample shows how to call the <see cref="!:GetZero"/> method.
+             <code>
+             class TestClass
+             {
+                 static int Main()
+                 {
+                     return GetZero();
+                 }
+             }
+             </code>
+             </example>
+        </member>
+        <member name="P:FlowEngineV1._1_DAL.BaseEntityObject.HasRemoved">
+            <summary>
+            Объект был удален
+            </summary>
+        </member>
+        <member name="P:FlowEngineV1._1_DAL.BaseEntityObject.LastChangeId">
+            <summary>
+            Идентификатор последнего изменения
+            </summary>
+        </member>
+        <member name="M:FlowEngineV1._1_DAL.BaseEntityObject.Change(System.String,System.Nullable{System.Guid})">
+            <summary>
+            Формирует и пытается отправить модель изменения данных, для успеха требуется подвзяать BaseEntityObejct.SaveChanges
+            Добавить 
+            </summary>
+            <param name="comment">Комментарий к изменению</param>
+            <param name="userId">Пользователь совершивший изменение</param>
+        </member>
+        <member name="P:FlowEngineV1._1_DAL.BaseObject.Id">
+            <summary>
+            Идентификатор объекта
+            </summary>
+        </member>
+        <member name="P:FlowEngineV1._1_DAL.BaseObject.CreateDate">
+            <summary>
+            Дата создания объекта
+            </summary>
+        </member>
+        <member name="T:FlowEngineV1._1_DAL.ChangeHistory">
+            <summary>
+            Модель фиксации любого изменения для любого объекта в базе
+            </summary>
+        </member>
+        <member name="P:FlowEngineV1._1_DAL.ChangeHistory.ObjectId">
+            <summary>
+            Идентификатор объекта
+            </summary>
+        </member>
+        <member name="P:FlowEngineV1._1_DAL.ChangeHistory.ObjectType">
+            <summary>
+            Тип объекта
+            </summary>
+        </member>
+        <member name="P:FlowEngineV1._1_DAL.ChangeHistory.UserId">
+            <summary>
+            Пользователь совершивший изменение
+            </summary>
+        </member>
+        <member name="P:FlowEngineV1._1_DAL.ChangeHistory.Comment">
+            <summary>
+            Комментарий объекта
+            </summary>
+        </member>
+        <member name="T:FlowEngineV1._2_BLL.IOC.IOCElementExecute`2">
+            <summary>
+            Базовый контейнер для хранения и повторного использования объектов
+            </summary>
+            <typeparam name="T">Тип родительского объекта</typeparam>
+            <typeparam name="T">Тип испольняемого объекта</typeparam>
+        </member>
+        <member name="M:FlowEngineV1._2_BLL.IOC.IOCElementExecute`2.GetUID(`0)">
+            <summary>
+            Извлекаем уникальный идентификатор из объекта
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FlowEngineV1._2_BLL.IOC.IOCElementExecute`2.Execute(`1)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FlowEngineV1._2_BLL.IOC.IOContainerExecute`3">
+            <summary>
+            Базовый контейнера для хранения логики и обработки на основе входящего параметра
+            </summary>
+            <typeparam name="TElement">Element type</typeparam>
+            <typeparam name="TParam">Execute param type</typeparam>
+        </member>
+        <member name="M:FlowEngineV1._2_BLL.IOC.IOContainerExecute`3.#ctor">
+            <summary>
+            Создаем пустой контейнер
+            </summary>
+        </member>
+        <member name="M:FlowEngineV1._2_BLL.IOC.IOContainerExecute`3.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Создаём контейнер на основе коллекции - рекомендуемый способ использования для ReadOnly коллекций, внутри потоков
+            </summary>
+            <param name="elements">Список элементов</param>
+        </member>
+        <member name="M:FlowEngineV1._2_BLL.IOC.IOContainerExecute`3.Execute(`2)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FlowEngineV1._2_BLL.IOC.IOContainerExecute`3.GetUID(`2)">
+            <summary>
+            Преобразует объект в уникальный ключ UID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FlowEngineV1._2_BLL.IOC.IOContainer`1">
+            <summary>
+            Базовый контейнера для хранения и повторного использования объектов
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:FlowEngineV1._2_BLL.IOC.IOContainer`1.#ctor">
+            <summary>
+            Создаем пустой контейнер
+            </summary>
+        </member>
+        <member name="M:FlowEngineV1._2_BLL.IOC.IOContainer`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Создаём контейнер на основе коллекции - рекомендуемый способ использования для ReadOnly коллекций, внутри потоков
+            </summary>
+            <param name="elements">Список элементов</param>
+        </member>
+        <member name="M:FlowEngineV1._2_BLL.IOC.IOContainer`1.GetByName(System.String)">
+            <summary>
+            Получение элемента контейнера по уникальному ключу
+            </summary>
+            <param name="uid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FlowEngineV1._2_BLL.IOC.IOContainer`1.Add(`0)">
+            <summary>
+            Добавить коллекцию элементов в контейнер
+            </summary>
+            <param name="collection"></param>
+        </member>
+        <member name="M:FlowEngineV1._2_BLL.IOC.IOContainer`1.AddRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Добавить коллекцию элементов в контейнер
+            </summary>
+            <param name="collection"></param>
+        </member>
+        <member name="T:FlowEngineV1._2_BLL.IOC.IOCElement">
+            <summary>
+            Базовый элемент контейнера для хранения и повторного использования объектов
+            </summary>
+        </member>
+        <member name="M:FlowEngineV1._2_BLL.Cryptography.StringToSha256ByteArray(System.String)">
+            <summary>
+            Конвертирую строку в байт массив шифрованный с помощью SHA256
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FlowEngineV1._2_BLL.Cryptography.StringToSha256String(System.String)">
+            <summary>
+            Конвертирую строку в Hash строку шифрованную с помощью SHA256
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlowEngineV1.Tools.Container
+namespace FlowEngineV1._2_BLL.IOC
 {
     /// <summary>
     /// Базовый контейнер для хранения и повторного использования объектов

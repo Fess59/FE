@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlowEngineV1.Tools
+namespace FlowEngineV1._2_BLL
 {
     public static class Cryptography
     {

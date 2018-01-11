@@ -1,6 +1,8 @@
-C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\FlowEngine\obj\Debug\FlowEngineV1.csproj.CoreCompileInputs.cache
 C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\FlowEngine\bin\Debug\FlowEngineV1.exe.config
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\FlowEngine\bin\Debug\FlowEngineV1.xml
 C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\FlowEngine\bin\Debug\FlowEngineV1.exe
 C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\FlowEngine\bin\Debug\FlowEngineV1.pdb
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\FlowEngine\obj\Debug\FlowEngineV1.csproj.CoreCompileInputs.cache
 C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\FlowEngine\obj\Debug\FlowEngineV1.exe
 C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\FlowEngine\obj\Debug\FlowEngineV1.pdb
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\FlowEngine\obj\Debug\FlowEngineV1.csprojResolveAssemblyReference.cache

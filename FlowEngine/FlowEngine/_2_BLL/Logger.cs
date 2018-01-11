@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlowEngineV1
+namespace FlowEngineV1._2_BLL
 {
     public static class Logger
     {

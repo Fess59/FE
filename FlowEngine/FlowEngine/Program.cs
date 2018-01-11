@@ -1,6 +1,6 @@
-﻿using FlowEngine.Tools.Container;
+﻿using FlowEngineV1._1_DAL;
+using FlowEngineV1._2_BLL;
 using FlowEngineV1.Flow;
-using FlowEngineV1.Flow.Container;
 using FlowEngineV1.Flow.Models;
 using System;
 using System.Collections.Generic;
@@ -42,7 +42,7 @@ namespace FlowEngineV1
             //Презентация:
             //1. Пример готового сервиса
             //2. Пример работы подразделения
-            //3. Пример работы компании и подразделений - желательно с WIKI и шаблонами визуализации для групп сотрудников
+            //3. Пример работы компании и подразделений - желательно с WIKI и шаблонами визуализации для групп сотрудниковs
 
             //var firstInstance = new FlowInstance() { UID = "1", Stage = 0 };
             //FakeApplicationData.FlowInstances.Add(firstInstance);

@@ -1,11 +1,11 @@
-﻿using FlowEngine.Tools;
+﻿using FlowEngineV1._2_BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlowEngineV1.Flow.Models
+namespace FlowEngineV1._1_DAL
 {
     public class BaseEntityObject : BaseObject
     {
