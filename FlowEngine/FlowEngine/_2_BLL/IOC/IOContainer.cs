@@ -8,28 +8,42 @@ using System.Threading.Tasks;
 
 namespace FlowEngineV1._2_BLL.IOC
 {
-    /// <summary>
-    /// Базовый контейнера для хранения и повторного использования объектов
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <summary>   An i/o container. </summary>
+    ///
+    /// <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+    ///
+    /// <typeparam name="T">    Generic type parameter. Where T is  <see cref="IOCElement"/> </typeparam>
+
     public class IOContainer<T> : BaseObject where T : IOCElement
     {
         #region Property
+
+        /// <summary>   The collection of IOC elements. </summary>
         private List<T> Collection = new List<T>();
+
+        /// <summary>   Gets or sets the name of the container. </summary>
+        ///
+        /// <value> The name of the container. </value>
+
         public string ContainerName { get; set; }
         #endregion
         #region Constructor
-        /// <summary>
-        /// Создаем пустой контейнер
-        /// </summary>
+
+        /// <summary>   Default constructor of IOC container. </summary>
+        ///
+        /// <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+
         public IOContainer()
         {
            
         }
-        /// <summary>
-        /// Создаём контейнер на основе коллекции - рекомендуемый способ использования для ReadOnly коллекций, внутри потоков
-        /// </summary>
-        /// <param name="elements">Список элементов</param>
+
+        /// <summary>   Constructor of IOC container with the help of elements list. </summary>
+        ///
+        /// <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+        ///
+        /// <param name="elements"> The elements of IOC container - <see cref="T" /> . </param>
+
         public IOContainer(IEnumerable<T> elements)
         {
             try
@@ -43,11 +57,15 @@ namespace FlowEngineV1._2_BLL.IOC
         }
         #endregion
         #region Methods
-        /// <summary>
-        /// Получение элемента контейнера по уникальному ключу
-        /// </summary>
-        /// <param name="uid"></param>
-        /// <returns></returns>
+
+        /// <summary>   Gets <see cref="T" /> by UID. </summary>
+        ///
+        /// <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+        ///
+        /// <param name="uid">  The UID of IOC element. </param>
+        ///
+        /// <returns>   The by name. </returns>
+
         public T GetByName(string uid)
         {
             T result = default(T);
@@ -56,24 +74,32 @@ namespace FlowEngineV1._2_BLL.IOC
             result = Collection.FirstOrDefault(q=>q.UID == uid);
             return result;
         }
-        /// <summary>
-        /// Добавить коллекцию элементов в контейнер
-        /// </summary>
-        /// <param name="collection"></param>
+
+        /// <summary>   Adds IOC element in container. </summary>
+        ///
+        /// <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+        ///
+        /// <param name="element">  The element to add. </param>
+
         public void Add(T element)
         {
             AddRange(new T[] { element });
         }
-        /// <summary>
-        /// Добавить коллекцию элементов в контейнер
-        /// </summary>
-        /// <param name="collection"></param>
+
+        /// <summary>   Adds IOC element collection in container. </summary>
+        ///
+        /// <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+        ///
+        /// <exception cref="ExceptionFlowIOContainer"> Thrown when an IOC element with the specified UID has already been added. </exception>
+        ///
+        /// <param name="collection">   The collection of IOC elements. </param>
+
         public void AddRange(IEnumerable<T> collection)
         {
             foreach (var item in collection)
             {
                 if (Collection.Any(q => q.UID == item.UID))
-                    throw new ExceptionFlowIOContainer("AddRange","Элемент с указанным UID уже был добавлен");
+                    throw new ExceptionFlowIOContainer("AddRange", "IOC element with the specified UID has already been added");
                 Collection.Add(item);
             }
         }

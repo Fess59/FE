@@ -13,6 +13,26 @@ namespace FlowEngineV1
 {
     class Program
     {
+        /// <summary>   Main entry-point for this application. </summary>
+        /// 
+        ///  <example>
+        /// This sample shows how to call the <see cref="GetZero"/> method.
+        /// <code>
+        /// class TestClass
+        /// {
+        ///     static int Main()
+        ///     {
+        ///         return GetZero();
+        ///     }
+        /// }
+        /// </code>
+        /// 
+        /// </example>
+        ///
+        /// <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+        ///
+        /// <param name="args"> An array of command-line argument strings. </param>
+
         static void Main(string[] args)
         {
             //1. Создание всей структуры из базы на лету - контейнер с эвентами, активностями и прочим

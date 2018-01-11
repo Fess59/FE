@@ -8,11 +8,16 @@ using System.Threading.Tasks;
 
 namespace FlowEngineV1._2_BLL.IOC
 {
-    /// <summary>
-    /// Базовый элемент контейнера для хранения и повторного использования объектов
-    /// </summary>
+    /// <summary>   An IOC element. </summary>
+    ///
+    /// <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+
     public class IOCElement: BaseObject
     {
+       /// <summary>    Gets or sets the UID. </summary>
+       ///
+       /// <value>  The UID of IOC element. </value>
+
        public string UID { get; set; }
     }
 }
