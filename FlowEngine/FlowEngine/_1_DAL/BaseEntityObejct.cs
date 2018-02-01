@@ -7,11 +7,6 @@ using System.Threading.Tasks;
 
 namespace FlowEngineV1._1_DAL
 {
-    /// <summary>
-    /// The <see cref="FlowEngineV1._1_DAL"/> namespace contains classes for ....
-    /// </summary>
-
-
     /// <summary><para>  Базовая модель Entity - все модели базы данных в системе, наследуются от этого класса </para>
     ///             <para>- Реализована система архивирования изменений модели, с помощью события SaveChanges </para>
     ///            <para> - Добавлен единый признак удаления объекта в базе </para></summary>
