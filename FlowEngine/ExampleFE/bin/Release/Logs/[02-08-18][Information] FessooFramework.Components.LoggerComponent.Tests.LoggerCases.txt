@@ -1,0 +1,4 @@
+[18:12:50.5765] Logger.Case2 - Test
+[18:14:35.8802] Logger.Case2 - Test
+[18:15:04.0390] Logger.Case2 - Test
+[18:17:11.5543] Logger.Case2 - Test

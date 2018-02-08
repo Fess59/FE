@@ -39,8 +39,8 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="FessooFramework, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FessooFramework.1.0.0.3\lib\net461\FessooFramework.dll</HintPath>
+    <Reference Include="FessooFramework, Version=1.0.0.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FessooFramework.1.0.0.9\lib\net461\FessooFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -62,18 +62,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\GateDB.cs" />
-    <Compile Include="ExampleModel\ExampleModel.cs" />
-    <Compile Include="ExampleModel\ExampleModelElement.cs" />
-    <Compile Include="ExampleModel\ExampleModelState.cs" />
-    <Compile Include="Models\FlowInstance.cs" />
-    <Compile Include="Models\FlowInstanceParameters.cs" />
-    <Compile Include="Models\FlowInstanceParametersState.cs" />
+    <Compile Include="Context\GateDBContext.cs" />
+    <Compile Include="Core\DCT.cs" />
+    <Compile Include="Core\DCTContextGate.cs" />
+    <Compile Include="GateAPI.cs" />
+    <Compile Include="Models\FlowInstancesParameters\FlowInstanceParametersHelper.cs" />
+    <Compile Include="Models\FlowInstances\FlowInstanceHelper.cs" />
+    <Compile Include="Models\FlowInstances\FlowInstance.cs" />
+    <Compile Include="Models\FlowInstancesParameters\FlowInstanceParameters.cs" />
+    <Compile Include="Models\FlowInstancesParameters\FlowInstanceParametersState.cs" />
+    <Compile Include="Models\FlowInstances\FlowInstanceState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repozitory\BaseRepository.cs" />
-    <Compile Include="Repozitory\DataElement.cs" />
-    <Compile Include="Repozitory\DataElementALM.cs" />
-    <Compile Include="Repozitory\FlowInstanceRealization.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

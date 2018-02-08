@@ -1,0 +1,17 @@
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\GateDB\bin\Release\GateDB.dll.config
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\GateDB\bin\Release\GateDB.dll
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\GateDB\bin\Release\GateDB.pdb
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\GateDB\bin\Release\EntityFramework.dll
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\GateDB\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\GateDB\bin\Release\FessooFramework.dll
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\GateDB\bin\Release\System.Data.SQLite.dll
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\GateDB\bin\Release\System.Data.SQLite.EF6.dll
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\GateDB\bin\Release\System.Data.SQLite.Linq.dll
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\GateDB\bin\Release\EntityFramework.xml
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\GateDB\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\GateDB\bin\Release\FessooFramework.xml
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\GateDB\bin\Release\System.Data.SQLite.xml
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\GateDB\bin\Release\System.Data.SQLite.dll.config
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\GateDB\obj\Release\GateDB.csproj.CoreCompileInputs.cache
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\GateDB\obj\Release\GateDB.dll
+C:\Users\AMKozhevnikov\source\repos\FE\FlowEngine\GateDB\obj\Release\GateDB.pdb

@@ -1,0 +1,2471 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FessooFramework</name>
+    </assembly>
+    <members>
+        <member name="T:FessooFramework.Components.DCTContext">
+             <summary>   A dct context.
+                         Контекст данных - наследуем кастомный контекст </summary>
+            
+             <remarks>   AM Kozhevnikov, 25.01.2018. </remarks>
+        </member>
+        <member name="P:FessooFramework.Components.DCTContext.TrackId">
+             <summary>   Gets or sets the identifier of the track.
+                          </summary>
+            TODO заменить на трэк модуль
+             <value> The identifier of the track. </value>
+        </member>
+        <member name="P:FessooFramework.Components.DCTContext.ParentTrackId">
+             <summary>   Gets or sets the identifier of the parent track. 
+                         Идентификатор родителя</summary>
+            
+             <value> The identifier of the parent track. </value>
+        </member>
+        <member name="P:FessooFramework.Components.DCTContext._Configuration">
+             <summary>   Gets the core configuration.
+                         Глобальная конфигурация ядра </summary>
+            
+             <value> The core configuration. </value>
+        </member>
+        <member name="M:FessooFramework.Components.DCTContext.#ctor">
+             <summary>   Default constructor. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Components.DCTContext.SaveChanges">
+             <summary>   Saves the changes.
+                         Сохраняем все изменения, во всех базах</summary>
+            
+             <remarks>   AM Kozhevnikov, 01.02.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Components.DCTContext.Dispose">
+             <summary>
+                 Обертка для IDisposable.Dispose в SystemObject Создана для возможности очистки объекта во
+                 всех наследуемых сущностях
+                 
+                 Выполняет определяемые приложением задачи, связанные с удалением, высвобождением или
+                 сбросом неуправляемых ресурсов.
+                 
+                 Очищает контекст данных и высвобождает все DbContext
+             </summary>
+            
+             <remarks>   AM Kozhevnikov, 01.02.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Components.DCTContext.DbSet``1">
+             <summary>   Database set by Type. </summary>
+            
+             <remarks>   AM Kozhevnikov, 06.02.2018. </remarks>
+            
+             <typeparam name="T">    Generic type parameter. </typeparam>
+            
+             <returns>   A DbSet&lt;T&gt; </returns>
+        </member>
+        <member name="M:FessooFramework.Components.DCTContext._2_Configuring">
+             <summary>
+                 Configurings this object. Настройка текущего модуля - наложение кастомных настроек и
+                 подписки глобальных настроек.
+             </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Components.DCTContext._3_Loaded">
+             <summary>   Loadings this object. Загрузка данных для объекта и обработка данных. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Components.DCTContext._4_Testing">
+             <summary>
+                 Testing this object. Проверка компонента на определённые условия - в будующем в этом
+                 месте требуется подключение модуля динамической отладки с выводом предпреждений.
+             </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <returns>
+                 An enumerator that allows foreach to be used to process testing in this collection.
+             </returns>
+        </member>
+        <member name="M:FessooFramework.Components.DCTContext._5_Launching">
+             <summary>   Launchings this object. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Components.DCTContext._6_Unload">
+             <summary>   Complitings this object. Работа с компонентом была завершена. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+        </member>
+        <member name="T:FessooFramework.Components.DispatcherHelper">
+             <summary>   A dispatcher helper. Компонент для управления сихронизации потоков с основным UI потоком </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+        </member>
+        <member name="P:FessooFramework.Components.DispatcherHelper.Dispacher">
+            <summary>
+                Диспетчер основного потока
+            </summary>
+        </member>
+        <member name="P:FessooFramework.Components.DispatcherHelper.CurrentSynchronizationContext">
+            <summary>
+                Диспетчер основного потока
+            </summary>
+        </member>
+        <member name="M:FessooFramework.Components.DispatcherHelper.SetDispatherAsDefault(System.Windows.Threading.Dispatcher)">
+            <summary>
+                Устанавливает текущий диспетчер как основной диспетчер для выполнения операций
+            </summary>
+            <param name="dispatcher"></param>
+        </member>
+        <member name="M:FessooFramework.Components.DispatcherHelper.Dispacher_UnhandledException(System.Object,System.Windows.Threading.DispatcherUnhandledExceptionEventArgs)">
+             <summary>   Event handler. Called by Dispacher for unhandled exception events. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <param name="sender">   Source of the event. </param>
+             <param name="e">        Dispatcher unhandled exception event information. </param>
+        </member>
+        <member name="M:FessooFramework.Components.DispatcherHelper.execute(System.Object)">
+             <summary>   Executes the given arguments. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <throwses cref="T:System.NullReferenceException">    Thrown when a value was unexpectedly null. </throwses>
+            
+             <param name="args"> The arguments. </param>
+        </member>
+        <member name="M:FessooFramework.Components.DispatcherHelper._2_Configuring">
+             <summary>
+                 Configurings this object. Настройка текущего модуля - наложение кастомных настроек и
+                 подписки глобальных настроек.
+             </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Components.DispatcherHelper._3_Loaded">
+             <summary>   Loadings this object. Загрузка данных для объекта и обработка данных. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Components.DispatcherHelper._4_Testing">
+             <summary>
+                 Testing this object. Проверка компонента на определённые условия - в будующем в этом
+                 месте требуется подключение модуля динамической отладки с выводом предпреждений.
+             </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <returns>
+                 An enumerator that allows foreach to be used to process testing in this collection.
+             </returns>
+        </member>
+        <member name="M:FessooFramework.Components.DispatcherHelper._5_Launching">
+             <summary>   Launchings this object. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Components.DispatcherHelper._6_Unload">
+             <summary>   Complitings this object. Работа с модулем была завершена. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+        </member>
+        <member name="T:FessooFramework.Components.LoggerComponent.LoggerHelper">
+             <summary>   A logger helper.
+                         Блок отвечающий за всё логирование в приложении </summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+        </member>
+        <member name="F:FessooFramework.Components.LoggerComponent.LoggerHelper.HasLoggerEnable">
+            <summary>   The has logger enable.
+                        Глобальная настройка включения логирования и перехвата сообщений </summary>
+        </member>
+        <member name="F:FessooFramework.Components.LoggerComponent.LoggerHelper.HasConsole">
+            <summary>   The has console.
+                        Настройка перехвата логирования с использванием консоли </summary>
+        </member>
+        <member name="F:FessooFramework.Components.LoggerComponent.LoggerHelper.HasFile">
+            <summary>   The has file. 
+                        Сохранение логов в файл</summary>
+        </member>
+        <member name="F:FessooFramework.Components.LoggerComponent.LoggerHelper.HasService">
+            <summary>   The has service. 
+                        Отрпавка логов на сервер</summary>
+        </member>
+        <member name="F:FessooFramework.Components.LoggerComponent.LoggerHelper.HasAction">
+            <summary>   The has action. </summary>
+        </member>
+        <member name="F:FessooFramework.Components.LoggerComponent.LoggerHelper.FileFolder">
+            <summary>   Pathname of the file log folder. </summary>
+        </member>
+        <member name="F:FessooFramework.Components.LoggerComponent.LoggerHelper.FilePath">
+            <summary>   Full pathname of the file. </summary>
+        </member>
+        <member name="F:FessooFramework.Components.LoggerComponent.LoggerHelper.HasExceptionFullMessage">
+            <summary>   Message describing the has exception full. </summary>
+        </member>
+        <member name="M:FessooFramework.Components.LoggerComponent.LoggerHelper.SendMessage(FessooFramework.Components.LoggerComponent.Models.LoggerMessage)">
+             <summary>   Sends a message.
+                         Основной метод логирования </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+            
+             <param name="message">  The message. </param>
+            
+             <returns>   True if it succeeds, false if it fails. </returns>
+        </member>
+        <member name="M:FessooFramework.Components.LoggerComponent.LoggerHelper.send(FessooFramework.Components.LoggerComponent.Models.LoggerMessage)">
+             <summary>   Send this message.
+                         Логика логирования </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+            
+             <param name="message">  The message. </param>
+            
+             <returns>   True if it succeeds, false if it fails. </returns>
+        </member>
+        <member name="M:FessooFramework.Components.LoggerComponent.LoggerHelper.ExToString(System.Exception)">
+             <summary>   Exception to string. </summary>
+            
+             <remarks>   AM Kozhevnikov, 05.02.2018. </remarks>
+            
+             <param name="ex">   The ex. </param>
+            
+             <returns>   A string. </returns>
+        </member>
+        <member name="T:FessooFramework.Components.LoggerComponent.Models.LoggerMessage">
+             <summary>   A logger message.
+                         Базовое сообщение логирования </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+        </member>
+        <member name="P:FessooFramework.Components.LoggerComponent.Models.LoggerMessage.messageType">
+             <summary>   Gets or sets the type of the message. </summary>
+            
+             <value> The type of the message. </value>
+        </member>
+        <member name="P:FessooFramework.Components.LoggerComponent.Models.LoggerMessage.MessageType">
+             <summary>   Gets or sets the type of the message. </summary>
+            
+             <value> The type of the message. </value>
+        </member>
+        <member name="P:FessooFramework.Components.LoggerComponent.Models.LoggerMessage.Text">
+             <summary>   Gets or sets the text. </summary>
+            
+             <value> The text. </value>
+        </member>
+        <member name="P:FessooFramework.Components.LoggerComponent.Models.LoggerMessage.Category">
+             <summary>   Gets or sets the category. </summary>
+            
+             <value> The category. </value>
+        </member>
+        <member name="M:FessooFramework.Components.LoggerComponent.Models.LoggerMessage.New(FessooFramework.Components.LoggerComponent.Models.LoggerMessageType,System.String,System.String)">
+             <summary>   New message from logger. </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+            
+             <param name="messageType">  The type of the message. </param>
+             <param name="text">         The text. </param>
+            
+             <returns>   A LoggerMessage. </returns>
+        </member>
+        <member name="T:FessooFramework.Components.LoggerComponent.Models.LoggerMessageType">
+             <summary>   Values that represent logger message types. </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+        </member>
+        <member name="T:FessooFramework.Components.LoggerComponent.Parts.LoggerElement">
+             <summary>   A logger element.
+                         Базовая реализация логгера</summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Components.LoggerComponent.Parts.LoggerElement.#ctor(FessooFramework.Components.LoggerComponent.Parts.LoggerElementType)">
+             <summary>   Constructor. </summary>
+            
+             <remarks>   AM Kozhevnikov, 01.02.2018. </remarks>
+            
+             <param name="type"> The type. </param>
+        </member>
+        <member name="M:FessooFramework.Components.LoggerComponent.Parts.LoggerElement.SendMessage(FessooFramework.Components.LoggerComponent.Models.LoggerMessage)">
+             <summary>   Sends a log message. </summary>
+            
+             <remarks>   AM Kozhevnikov, 01.02.2018. </remarks>
+            
+             <param name="message">  The message. </param>
+            
+             <returns>   True if it succeeds, false if it fails. </returns>
+        </member>
+        <member name="M:FessooFramework.Components.LoggerComponent.Parts.LoggerElement.SendMessage(FessooFramework.Components.LoggerComponent.Models.LoggerMessageType,System.String,System.String)">
+             <summary>   Sends custom a log message. </summary>
+            
+             <remarks>   AM Kozhevnikov, 01.02.2018. </remarks>
+            
+             <param name="loggerType">   Type of the logger. </param>
+             <param name="message">      The message. </param>
+             <param name="category">     The category. </param>
+            
+             <returns>   True if it succeeds, false if it fails. </returns>
+        </member>
+        <member name="M:FessooFramework.Components.LoggerComponent.Parts.LoggerElement.SendInformation(System.String,System.String)">
+             <summary>   Sends an log information. </summary>
+            
+             <remarks>   AM Kozhevnikov, 01.02.2018. </remarks>
+            
+             <param name="text">     The text. </param>
+             <param name="category"> The category. </param>
+            
+             <returns>   True if it succeeds, false if it fails. </returns>
+        </member>
+        <member name="M:FessooFramework.Components.LoggerComponent.Parts.LoggerElement.SendException(System.Exception,System.String)">
+             <summary>   Sends an log exception. </summary>
+            
+             <remarks>   AM Kozhevnikov, 01.02.2018. </remarks>
+            
+             <param name="ex">       The ex. </param>
+             <param name="category"> The category. </param>
+            
+             <returns>   True if it succeeds, false if it fails. </returns>
+        </member>
+        <member name="M:FessooFramework.Components.LoggerComponent.Parts.LoggerElement.SendWarning(System.String,System.String)">
+             <summary>   Sends  a log warning. </summary>
+            
+             <remarks>   AM Kozhevnikov, 01.02.2018. </remarks>
+            
+             <param name="text">     The text. </param>
+             <param name="category"> The category. </param>
+            
+             <returns>   True if it succeeds, false if it fails. </returns>
+        </member>
+        <member name="T:FessooFramework.Components.LoggerComponent.Parts.LoggerElementType">
+             <summary>   Values that represent logger element types. </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+        </member>
+        <member name="T:FessooFramework.Components.LoggerComponent.Realizations.ConsoleLogger">
+             <summary>   A console logger.
+                         Реализация логгера для логирования в консоль </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Components.LoggerComponent.Realizations.ConsoleLogger.#ctor">
+             <summary>   Default constructor. </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Components.LoggerComponent.Realizations.ConsoleLogger.SendMessage(FessooFramework.Components.LoggerComponent.Models.LoggerMessage)">
+             <summary>   Sends a message.
+                         Отправка сообщения в консоль </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+            
+             <param name="message">  The message. </param>
+            
+             <returns>   True if it succeeds, false if it fails. </returns>
+        </member>
+        <member name="T:FessooFramework.Components.LoggerComponent.Realizations.FileLogger">
+             <summary>   A file logger.
+                         Логирование в файл </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+        </member>
+        <member name="F:FessooFramework.Components.LoggerComponent.Realizations.FileLogger.ObjSaveFile">
+            <summary>   The object save file. </summary>
+        </member>
+        <member name="M:FessooFramework.Components.LoggerComponent.Realizations.FileLogger.#ctor">
+             <summary>   Default constructor. 
+                         Задаём значение Enum для базового класса</summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Components.LoggerComponent.Realizations.FileLogger.SendMessage(FessooFramework.Components.LoggerComponent.Models.LoggerMessage)">
+             <summary>   Sends a message. </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+            
+             <param name="message">  The message. </param>
+            
+             <returns>   True if it succeeds, false if it fails. </returns>
+        </member>
+        <member name="T:FessooFramework.Core.SystemCoreConfiguration">
+             <summary>   A core configuration.
+                         Базовые настройки системы </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+        </member>
+        <member name="F:FessooFramework.Core.SystemCoreConfiguration.LogEnable">
+             <summary>   Gets or sets the log enable.
+                         Логи в системе </summary>
+            
+             <value> The log enable. </value>
+        </member>
+        <member name="P:FessooFramework.Core.SystemCoreConfiguration.RootDirectory">
+             <summary>   Gets the pathname of the root directory. </summary>
+            
+             <value> The pathname of the root directory. </value>
+        </member>
+        <member name="P:FessooFramework.Core.SystemCoreConfiguration.ComponentTestEnable">
+             <summary>
+                 Gets or sets a value indicating whether this object is test module enable.
+                 Управление тестирование компонентов при инициализации системы
+             </summary>
+            
+             <value> True if test module enable, false if not. </value>
+        </member>
+        <member name="T:FessooFramework.Core._DCT`1">
+             <summary>   A dct default. Базовая реализация DCT - используем в проектах, где не требуется кастомная реализация </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+        </member>
+        <member name="P:FessooFramework.Core._DCT`1.Context">
+             <summary>   Gets the context.  </summary>
+            
+             <value> . </value>
+        </member>
+        <member name="M:FessooFramework.Core._DCT`1.Execute(System.Action{`0},System.Action{`0,System.Exception},System.Action{`0},System.String)">
+             <summary>   Executes void. </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <param name="action">                   The action. </param>
+             <param name="continueExceptionMethod">  (Optional) The continue exception method. Выполнится
+                                                     при ошибке в method. </param>
+             <param name="continueMethod">           (Optional) The continue method. Выполнится после
+                                                     method и continueExceptionMethod. </param>
+        </member>
+        <member name="M:FessooFramework.Core._DCT`1.Execute``1(System.Func{`0,``0},System.Action{`0,System.Exception},System.Action{`0})">
+             <summary>   Executes result. </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <typeparam name="TResult">  Type of the result. </typeparam>
+             <param name="action">                   The action. </param>
+             <param name="continueExceptionMethod">  (Optional) The continue exception method. Выполнится
+                                                     при ошибке в method. </param>
+             <param name="continueMethod">           (Optional) The continue method. Выполнится после
+                                                     method и continueExceptionMethod. </param>
+            
+             <returns>   A TResult. </returns>
+        </member>
+        <member name="M:FessooFramework.Core._DCT`1.ExecuteAsync``1(System.Func{`0,``0},System.Action{`0,``0},System.Action{`0,System.Exception},System.Action{`0})">
+             <summary>   Executes the asynchronous operation. With result </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <typeparam name="TResult">  Type of the result. </typeparam>
+             <param name="action">                   The action. </param>
+             <param name="complete">                 The complete. Для отправки результата в другой блок
+                                                     кода, используется в ExecuteAsync </param>
+             <param name="continueExceptionMethod">  (Optional) The continue exception method. Выполнится
+                                                     при ошибке в method. </param>
+             <param name="continueMethod">           (Optional) The continue method. Выполнится после
+                                                     method и continueExceptionMethod. </param>
+        </member>
+        <member name="M:FessooFramework.Core._DCT`1.ExecuteAsync(System.Action{`0},System.Action{`0,System.Exception},System.Action{`0})">
+             <summary>   Executes the asynchronous operation. Void </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <param name="action">                   The action. </param>
+             <param name="continueExceptionMethod">  (Optional) The continue exception method. Выполнится
+                                                     при ошибке в method. </param>
+             <param name="continueMethod">           (Optional) The continue method. Выполнится после
+                                                     method и continueExceptionMethod. </param>
+        </member>
+        <member name="M:FessooFramework.Core._DCT`1.ExecuteMainThread(System.Action{`0},System.Action{`0,System.Exception},System.Action{`0})">
+             <summary>   Executes the main thread operation. </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <param name="action">                   The action. </param>
+             <param name="continueExceptionMethod">  (Optional) The continue exception method. Выполнится
+                                                     при ошибке в method. </param>
+             <param name="continueMethod">           (Optional) The continue method. Выполнится после
+                                                     method и continueExceptionMethod. </param>
+        </member>
+        <member name="M:FessooFramework.Core._DCT`1.SendExceptions(System.String,System.String)">
+             <summary>   Sends the exceptions. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <param name="text">     The text. </param>
+             <param name="category"> The category. </param>
+        </member>
+        <member name="M:FessooFramework.Core._DCT`1.SendExceptions(System.Exception,System.String)">
+             <summary>   Sends the exceptions. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <param name="ex">       The ex. </param>
+             <param name="category"> The category. </param>
+        </member>
+        <member name="M:FessooFramework.Core._DCT`1.SendInformations(System.String,System.String)">
+             <summary>   Sends the informations. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <param name="text">     The text. </param>
+             <param name="category"> The category. </param>
+        </member>
+        <member name="M:FessooFramework.Core._DCT`1.SendWarning(System.String,System.String)">
+             <summary>   Sends a warning. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <param name="text">     The text. </param>
+             <param name="category"> The category. </param>
+        </member>
+        <member name="M:FessooFramework.Core._DCT`1.Send(System.String)">
+             <summary>   Send this message. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <param name="text"> The text. </param>
+        </member>
+        <member name="P:FessooFramework.Core.Bootstrapper`1.Current">
+             <summary>   Gets the current. </summary>
+            
+             <value> The current. </value>
+        </member>
+        <member name="T:FessooFramework.Core._Bootstrapper">
+             <summary>   A bootstrapper.
+                         Загрузчик системы, создан для контроля и облегчения запуска системы или приложения
+                          </summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+        </member>
+        <member name="P:FessooFramework.Core._Bootstrapper.ApplicationName">
+             <summary>   Gets the name of the application.
+                         Наименование приложения, обязательное к заполнению поле </summary>
+            
+             <value> The name of the application. </value>
+        </member>
+        <member name="M:FessooFramework.Core._Bootstrapper.#ctor">
+             <summary>   Constructor.
+                         Данные класс Singlton. Пожалуйста используйте статичное свойство Current для работы </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <throwses cref="T:System.Exception"> Thrown when an exception error condition occurs. </throwses>
+            
+             <param name="text"> The text. </param>
+        </member>
+        <member name="M:FessooFramework.Core._Bootstrapper.Run">
+             <summary>   Runs this object.
+                         Последний метод в запуске ядра системы </summary>д
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Core._Bootstrapper.SetComponents(System.Collections.Generic.List{FessooFramework.Objects.SystemComponent}@)">
+             <summary>   Sets the components.
+                         Список модулей и их настройки, возможность добавить модули </summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+            
+             <param name="components">   [in,out] The components. </param>
+        </member>
+        <member name="M:FessooFramework.Core._Bootstrapper.SetConfiguration(FessooFramework.Core.SystemCoreConfiguration@)">
+             <summary>   Sets a configuration.
+                         Основные настройки ядра при его инициализации</summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+            
+             <param name="settings"> [in,out] Options for controlling the operation. </param>
+        </member>
+        <member name="M:FessooFramework.Core._Bootstrapper.SetDbContext(FessooFramework.Objects.SourceData.DataContextStore@)">
+             <summary>   Sets database context. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <param name="store">    [in,out] The store. </param>
+        </member>
+        <member name="T:FessooFramework.Core._DCTBase">
+             <summary>   A dct base.
+                         Инструмент отказоустойчивости системы, интегрирован модулями:
+                         - Логирования - сбор ошибок и урощенная аналитика ошибок  
+                         - Аналитика - количество и время выполнения каждого метода и блока  
+                         - Трекер - дерево выполнения всех методов  
+                         - MainThread - Интеграция с модулем основного потока  
+                         - DCTContext - расширяемый блок данных  
+                         - Pools - различные пулы объектов, визуальные и другие  
+                         - Warnings - модуль предупреждений, аналог юнит тестирования на лету </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase.execute``2(System.String,System.Func{``0,``1},System.Action{``0,System.Exception},System.Action{``0},System.Action{``0,``1})">
+             <summary>    Executes result.
+                          Основной инструмент, в нём сосредоточена вся основная логика работы </summary>
+            
+             <remarks>    Fess59, 26.01.2018. </remarks>
+            
+             <exception cref="T:System.NullReferenceException">    Thrown when a value was unexpectedly null. </exception>
+            
+             <typeparam name="TResult">   Type of the result. </typeparam>
+             <param name="name">                    The name. Имя группы в которая выполняет обработку, обычно это имя класса  </param>
+             <param name="method">                    The method. Выполняемый блок кода  </param>
+             <param name="continueExceptionMethod">   (Optional) The continue exception method. Выполнится при ошибке в method </param>
+             <param name="continueMethod">            (Optional) The continue method. Выполнится после method и continueExceptionMethod  </param>
+             <param name="complete">                  (Optional) The complete. Для отправки результата в другой блок кода, используется в ExecuteAsync  </param>
+            
+             <typeparam name="TContext"> Type of the context. Имплементация компонента DCTContext </typeparam>
+             
+             <returns>    A TResult. </returns>
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase.execute``1(System.String,System.Action{``0},System.Action{``0,System.Exception},System.Action{``0})">
+             <summary>
+                 Executes void. Основной инструмент, в нём сосредоточена вся основная логика работы.
+             </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <param name="name">                    The name. Имя группы в которая выполняет обработку, обычно это имя класса  </param>
+             <param name="method">                   The method. Выполняемый блок кода. </param>
+             <param name="continueExceptionMethod">  (Optional) The continue exception method. Выполнится
+                                                     при ошибке в method. </param>
+             <param name="continueMethod">           (Optional) The continue method. Выполнится после
+                                                     method и continueExceptionMethod. </param>
+        </member>
+        <member name="F:FessooFramework.Core._DCTBase.contextName">
+            <summary>   Name of the context. В памяти потока </summary>
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase.Context``1">
+             <summary>   Gets the context. Имплементация компонента DCTContext
+                          </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <typeparam name="TContext"> Type of the context. Имплементация компонента DCTContext </typeparam>
+            
+             <returns>   A TContext. </returns>
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase.GetContext``1(``0)">
+             <summary>    Gets a context.
+                          Получаю контекст из области данных потока </summary>
+            
+             <remarks>    Fess59, 26.01.2018. </remarks>
+            
+             <param name="value"> (Optional) The value. </param>
+            
+             <returns>    The context. </returns>
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase.CheckContext``1">
+             <summary>   Determines if we can check context. </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <returns>   True if it succeeds, false if it fails. </returns>
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase._Execute``1(System.Action{``0},System.Action{``0,System.Exception},System.Action{``0},System.String)">
+             <summary>   Executes void. </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <param name="action">                   The action. </param>
+             <param name="continueExceptionMethod">  (Optional) The continue exception method. Выполнится
+                                                     при ошибке в method. </param>
+             <param name="continueMethod">           (Optional) The continue method. Выполнится после
+                                                     method и continueExceptionMethod. </param>
+             <param name="name">                    The name. Имя группы в которая выполняет обработку, обычно это имя класса  </param>
+             
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase._Execute``2(System.Func{``0,``1},System.Action{``0,System.Exception},System.Action{``0})">
+             <summary>   Executes result. </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <typeparam name="TResult">  Type of the result. </typeparam>
+             <param name="action">                   The action. </param>
+             <param name="continueExceptionMethod">  (Optional) The continue exception method. Выполнится
+                                                     при ошибке в method. </param>
+             <param name="continueMethod">           (Optional) The continue method. Выполнится после
+                                                     method и continueExceptionMethod. </param>
+            
+             <typeparam name="TContext"> Type of the context. Имплементация компонента DCTContext </typeparam>
+             
+             <returns>   A TResult. </returns>
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase._ExecuteAsync``2(System.Func{``0,``1},System.Action{``0,``1},System.Action{``0,System.Exception},System.Action{``0},System.String)">
+             <summary>   Executes the asynchronous operation. With result </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <param name="action">                   The action. </param>
+             <param name="complete">                 The complete. Для отправки результата в другой блок
+                                                     кода, используется в ExecuteAsync </param>
+             <param name="continueExceptionMethod">  (Optional) The continue exception method. Выполнится
+                                                     при ошибке в method. </param>
+             <param name="continueMethod">           (Optional) The continue method. Выполнится после
+                                                     method и continueExceptionMethod. </param>
+             <param name="name">                    The name. Имя группы в которая выполняет обработку, обычно это имя класса  </param>
+             
+             <typeparam name="TResult">  Type of the result. </typeparam>
+             <typeparam name="TContext"> Type of the context. Имплементация компонент DCTContext </typeparam>
+             
+             
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase._ExecuteAsync``1(System.Action{``0},System.Action{``0,System.Exception},System.Action{``0})">
+             <summary>   Executes the asynchronous operation. Void </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <param name="action">                   The action. </param>
+             <param name="continueExceptionMethod">  (Optional) The continue exception method. Выполнится
+                                                     при ошибке в method. </param>
+             <param name="continueMethod">           (Optional) The continue method. Выполнится после
+                                                     method и continueExceptionMethod. </param>
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase._ExecuteMainThread``2(System.Func{``0,``1},System.Action{``0,``1},System.Action{``0,System.Exception},System.Action{``0})">
+             <summary>   Executes the main thread operation. With result async </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <param name="action">                   The action. </param>
+             <param name="continueExceptionMethod">  (Optional) The continue exception method. Выполнится
+                                                     при ошибке в method. </param>
+             <param name="continueMethod">           (Optional) The continue method. Выполнится после
+                                                     method и continueExceptionMethod. </param>
+              <param name="complete">                 The complete. Для отправки результата в другой блок
+                                                     кода, используется в ExecuteAsync </param>
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase._ExecuteMainThread``1(System.Action{``0},System.Action{``0,System.Exception},System.Action{``0})">
+             <summary>   Executes the main thread operation. Void </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <param name="action">                   The action. </param>
+             <param name="continueExceptionMethod">  (Optional) The continue exception method. Выполнится
+                                                     при ошибке в method. </param>
+             <param name="continueMethod">           (Optional) The continue method. Выполнится после
+                                                     method и continueExceptionMethod. </param>
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase._SendInformations(System.String,System.String)">
+             <summary>   Sends the informations. Отправка сообщения через логгер </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <param name="text">     The text. </param>
+             <param name="category"> The category. </param>
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase._SendWarning(System.String,System.String)">
+             <summary>   Sends a warning. Отправка предупреждения через логгер, с произвольной категорией и текстом</summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <param name="text">     The text. </param>
+             <param name="category"> The category. </param>
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase._SendExceptions(System.String,System.String)">
+             <summary>
+                 Sends the exceptions. Отправка ошибки через логгер, с произвольной категорией и текстом.
+             </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <param name="text">     The text. </param>
+             <param name="category"> The category. </param>
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase._SendExceptions(System.Exception,System.String)">
+             <summary>   Sends the exceptions. Отправка ошибки через логгер, с произвольной категорией.</summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <param name="ex">       The ex. </param>
+             <param name="category"> The category. </param>
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase._Send(System.String)">
+             <summary>   Send this message. Отправка сообщения через логгер. Тип - Information, категория - Message</summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <param name="text"> The text. </param>
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase.Send(FessooFramework.Components.LoggerComponent.Models.LoggerMessageType,System.String,System.String)">
+             <summary>   Send this message. Отправка сообщения через логгер с произвольным типом, текстом и категорией </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <param name="messageType">  Type of the message. </param>
+             <param name="text">         The text. </param>
+             <param name="category">     The category. </param>
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase.Send(FessooFramework.Components.LoggerComponent.Models.LoggerMessage)">
+             <summary>
+                 Send this message. Отправка модели сообщения через логгер 
+             </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <param name="message">  The message. </param>
+        </member>
+        <member name="M:FessooFramework.Core._DCTBase.GetCategoryName(System.Int32)">
+            <summary>
+            Получаем имя текущего метода
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FessooFramework.Core.SystemCore">
+             <summary>   A system core.
+                         Ядро системы, является менеджером жизненного цикла системы и компонентов, так же выполняет роль и хранилища глобальных настроек.
+                         Основные сущности системы Components и Settings может переопределить при реализации кастомной копии ядра
+                         </summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+        </member>
+        <member name="P:FessooFramework.Core.SystemCore.Name">
+             <summary>   Gets the name.
+                         Наименование приложение  </summary>
+            
+             <value> The name. </value>
+        </member>
+        <member name="P:FessooFramework.Core.SystemCore.Bootstrapper">
+             <summary>   Gets or sets the bootstrapper.
+                         Загрузчик системы </summary>
+            
+             <value> The bootstrapper. </value>
+        </member>
+        <member name="F:FessooFramework.Core.SystemCore.ComponentsContainer">
+             <summary>   Gets or sets the components container. </summary>
+            
+             <value> The components container. </value>
+        </member>
+        <member name="P:FessooFramework.Core.SystemCore.CoreConfiguration">
+             <summary>   Gets or sets the core configuration.
+                         Настройки системы при инициализации - определяются в загрузчике Bootstrapper. </summary>
+            
+             <value> The core configuration. </value>
+        </member>
+        <member name="M:FessooFramework.Core.SystemCore.GetStore">
+             <summary>   Gets the store.
+                         Получить модель данных для контекста </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <returns>   The store. </returns>
+        </member>
+        <member name="M:FessooFramework.Core.SystemCore._StateChanged(FessooFramework.Objects.SystemState,FessooFramework.Objects.SystemState)">
+            <summary>   The store. 
+                        Данные контекста</summary>
+        </member>
+        <member name="M:FessooFramework.Core.SystemCore.SetBootstrapper(FessooFramework.Core._Bootstrapper)">
+             <summary>   Sets a bootstrapper.
+                         Установка загрузчика и создание копии ядра при инициализации загрузчика </summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+            
+             <param name="b">    A Bootstrapper to process. </param>
+        </member>
+        <member name="T:FessooFramework.Objects.Data.CacheState">
+             <summary>   Values that represent cache states.
+                         Состояния объекта в кэше клиента</summary>
+            
+             <remarks>   AM Kozhevnikov, 25.01.2018. </remarks>
+        </member>
+        <member name="F:FessooFramework.Objects.Data.CacheState.None">
+            <summary>   Объект был получен с сервера и его нет в кэше клиента. </summary>
+        </member>
+        <member name="F:FessooFramework.Objects.Data.CacheState.Create">
+            <summary> Объект создан на клиенте - требуеться отправка на сервер  . </summary>
+        </member>
+        <member name="F:FessooFramework.Objects.Data.CacheState.Edited">
+            <summary>   Объект был изменён на клиенте. </summary>
+        </member>
+        <member name="F:FessooFramework.Objects.Data.CacheState.Completed">
+            <summary>   Объект уже сохранён в кеше клиента. </summary>
+        </member>
+        <member name="T:FessooFramework.Objects.Data.EntityObjectALM`2">
+             <summary>   An entity object a ALM. </summary>
+            
+             <remarks>   AM Kozhevnikov, 06.02.2018. </remarks>
+            
+             <typeparam name="TObjectType">  Type of the object type. </typeparam>
+             <typeparam name="TStateType">   Type of the state type. </typeparam>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.EntityObjectALM`2.Configurations">
+             <summary>   State configuration.
+                         Настройка конфигурации для измения состояния жизненного цикла </summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.EntityObjectALM`2.DefaultState">
+            <summary>
+            Базовые состояния, переход в которые возможен из любого состояния
+            </summary>
+        </member>
+        <member name="M:FessooFramework.Objects.Data.EntityObjectALM`2.GetStateValue(`1)">
+            <summary>
+            Реализует метод конвертации Enum в int
+            </summary>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.EntityObjectALM`2.StateEnum">
+            <summary>
+            Состояние объекта в Enum
+            </summary>
+        </member>
+        <member name="M:FessooFramework.Objects.Data.EntityObjectALM`2._Save">
+             <summary> Сохраняем изменения объекта  на основании его состояния. Для фиксации измениний в базе не обходимо вызвать SaveChanges</summary>
+            
+             <remarks>   Fess59, 02.02.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.Data.EntityObjectALM`2._DbSet">
+             <summary>
+            Получаем DbSet для этой модели
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:FessooFramework.Objects.Data.EntityObjectALM`2._Convert``1">
+            
+             <remarks>   AM Kozhevnikov, 06.02.2018. </remarks>
+            
+             <typeparam name="TResult">    Generic type parameter. </typeparam>
+            
+             <returns>   A T. </returns>
+        </member>
+        <member name="M:FessooFramework.Objects.Data.EntityObjectALM`2.DbSet">
+            <summary>
+            Получаем DbSet для этой модели
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FessooFramework.Objects.Data.EntityObjectALM`2.Update(FessooFramework.Objects.Data.EntityObject)">
+            <summary>
+            Основной метод - обновление модели данных
+            </summary>
+            <param name="newObj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FessooFramework.Objects.Data.EntityObjectALM`2.GetStateConfiguration">
+             <summary>   Enumerates state configuration in this collection.
+                         Получаем список настроек переходов объекта в другие состояния</summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+            
+             <returns>
+             An enumerator that allows foreach to be used to process state configuration in this
+             collection.
+             </returns>
+        </member>
+        <member name="M:FessooFramework.Objects.Data.EntityObjectALM`2.SetError">
+            <summary>
+            Вызывается в случае ошибки обработки перехода объекта в другое состояние
+            </summary>
+        </member>
+        <member name="T:FessooFramework.Objects.Data.EntityHistory">
+             <summary>   An entity change history model. </summary>
+            
+             <remarks>   AM Kozhevnikov, 24.01.2018. </remarks>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.EntityHistory.ObjectId">
+             <summary>   Gets or sets the identifier of the modified object. </summary>
+            
+             <value> The identifier of the modified object. </value>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.EntityHistory.ObjectType">
+             <summary>   Gets or sets the type of the modified object. </summary>
+            
+             <value> The type of the modified object. </value>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.EntityHistory.OwnerId">
+             <summary>   Gets or sets the identifier of the user who owns the change. </summary>
+            
+             <value> The identifier of the user who owns the change. </value>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.EntityHistory.Comment">
+             <summary>   Gets or sets the comment. </summary>
+            
+             <value> The comment. </value>
+        </member>
+        <member name="M:FessooFramework.Objects.Data.EntityHistory.New(System.Guid,System.String,System.Nullable{System.Guid},System.String)">
+             <summary>   Creates a new model. </summary>
+            
+             <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+            
+             <exception cref="T:System.NullReferenceException">   Thrown when a value was unexpectedly null. ObjectId cannot Guid.Empty</exception>
+            
+             <param name="objectId">     The identifier of the modified object. </param>
+             <param name="objectType">   The type of the modified object. </param>
+             <param name="userId">       The identifier of the user who owns the change. </param>
+             <param name="comment">      The comment. </param>
+            
+             <returns>   A ChangeHistory. </returns>
+        </member>
+        <member name="T:FessooFramework.Objects.Data.EntityObjectALMConfiguration`2">
+             <summary>   A data alm configuration. 
+                         Entity Object ALM Configuration</summary>
+            
+             <remarks>   AM Kozhevnikov, 06.02.2018. </remarks>
+            
+             <typeparam name="TObjectType">  Type of the object type. </typeparam>
+             <typeparam name="TEnumState">   Type of the enum state. </typeparam>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.EntityObjectALMConfiguration`2.State">
+            <summary>
+            Текущее состояние
+            </summary>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.EntityObjectALMConfiguration`2.NextState">
+            <summary>
+            Новое состояние
+            </summary>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.EntityObjectALMConfiguration`2._Execute">
+            <summary>
+            Метод который обрабатывает переход состояния
+            </summary>
+        </member>
+        <member name="M:FessooFramework.Objects.Data.EntityObjectALMConfiguration`2.#ctor(`1,`1,System.Func{`0,`0,`0})">
+            <summary>
+            Базовый конструктор
+            </summary>
+            <param name="state"></param>
+            <param name="nextState"></param>
+            <param name="execute"></param>
+        </member>
+        <member name="M:FessooFramework.Objects.Data.EntityObjectALMConfiguration`2.Execute(`0,`0)">
+            <summary>
+            Выполняем переход в другое состояние
+            </summary>
+            <param name="oldObj"></param>
+            <param name="newObj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FessooFramework.Objects.Data.EntityObjectALMConfiguration`2.New(`1,`1,System.Func{`0,`0,`0})">
+            <summary>
+            Создание новый конфигурации ALM
+            </summary>
+            <param name="state"></param>
+            <param name="nextState"></param>
+            <param name="execute"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FessooFramework.Objects.Data.CacheObject">
+             <summary>   A cache object.
+                         Объект кеширования на клиенте и визуальных моделей
+                         Базовый модель тип модели и схема его данных определяется на основе Version и DataType </summary>
+            
+             <remarks>   Fess59, 24.01.2018. </remarks>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.CacheObject.TTL">
+             <summary>   Gets or sets the TTL.
+                         Время жизни объекта
+                         К примеру TTL = TimeSpan.FromSecond(100).Ticks, время жизни 100 секунд
+                         Логика контроля время жизни реализована в  методе _TTLCheck</summary>
+            
+             <value> The TTL. </value>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.CacheObject.Timestamp">
+             <summary>   Gets or sets the timestamp.
+                         Таймштамп объекта выдаётся сервером в момент создания или фиксации изменения объекта в базе
+                         По этому параметру формируется список загрузки объектов для клиента</summary>
+            
+             <value> The timestamp. </value>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.CacheObject.Version">
+             <summary>   Gets or sets the version.
+                         Версия системы в которой данная модель была реализована
+                         Используется при формировании списка загрузки объектов клиента - если версия клиента ниже, часть списка он не загрузит</summary>
+            
+             <value> The version. </value>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.CacheObject.State">
+             <summary>   Gets or sets the state.
+                         Состояние жизненного цикла объекта кэша в формате int</summary>
+            
+             <value> The state. </value>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.CacheObject.StateEnum">
+             <summary>   Gets or sets the state enum.
+                         Состояние жизненного цикла объекта кэша в формате CacheState</summary>
+            
+             <value> The state enum. </value>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.CacheObject.DataType">
+             <summary>   Gets or sets the type of the data.
+                         Тип объекта кэша в формате int </summary>
+            
+             <value> The type of the data. </value>
+        </member>
+        <member name="M:FessooFramework.Objects.Data.CacheObject.DataTypeEnum``1">
+             <summary>   Data type enum.
+                         Тип объекта кэша в формате CacheState </summary>
+            
+             <remarks>   AM Kozhevnikov, 25.01.2018. </remarks>
+            
+             <typeparam name="T">    Generic type parameter. </typeparam>
+            
+             <returns>   A T. </returns>
+        </member>
+        <member name="M:FessooFramework.Objects.Data.CacheObject._TTLCheck">
+             <summary>   Determines if we can TTL check.
+                         Метод проверяет актуалность объекта по жизненному циклу и при необходимости помечает его на удаление
+                         Если текущая дата больше даты создания + TTL объект будет удален</summary>
+            
+             <remarks>   AM Kozhevnikov, 25.01.2018. </remarks>
+            
+             <returns>   True if it succeeds, false if it fails. </returns>
+        </member>
+        <member name="T:FessooFramework.Objects.Data.DataObject">
+             <summary>   A data object.
+                         Базовый объект данных </summary>
+            
+             <remarks>   AM Kozhevnikov, 24.01.2018. </remarks>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.DataObject.HasRemoved">
+             <summary>   Gets or sets a value indicating whether this object has removed.
+                         Признак что объект удалён - базовая логики контейнера данных учитывает данны признак при работе с объектами</summary>
+            
+             <value> True if this object has removed, false if not. </value>
+        </member>
+        <member name="M:FessooFramework.Objects.Data.DataObject._Remove">
+             <summary>   Removes this object.
+                         Помечает объект удаленным</summary>
+            
+             <remarks>   AM Kozhevnikov, 24.01.2018. </remarks>
+        </member>
+        <member name="T:FessooFramework.Objects.Data.EntityObject">
+             <summary>   An entity object.
+                         Базовый объект базы данныx
+                         Реализует концепцию опционального ведения истории изменения объекта 
+                         TODO CORE Подвязку сохранения изменний вынести в настройки ядра </summary>
+             
+            
+             <remarks>   AM Kozhevnikov, 24.01.2018. </remarks>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.EntityObject._SendToHistory">
+             <summary>   Gets or sets the save changes. </summary>
+            
+             <value> The save changes. </value>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.EntityObject.LastChangeId">
+             <summary>   Gets or sets the identifier of the last change. </summary>
+            
+             <value> The identifier of the last change. </value>
+        </member>
+        <member name="P:FessooFramework.Objects.Data.EntityObject.State">
+             <summary>   Gets or sets the state.
+                         Default state = 0 </summary>
+            
+             <value> The state. </value>
+        </member>
+        <member name="M:FessooFramework.Objects.Data.EntityObject.#ctor">
+             <summary>   Default constructor. </summary>
+            
+             <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.Data.EntityObject._ToHistory(System.String,System.Nullable{System.Guid})">
+             <summary>   Send this object to a history. </summary>
+            
+             <remarks>   AM Kozhevnikov, 24.01.2018. </remarks>
+            
+             <param name="comment">  (Optional) The comment. </param>
+             <param name="userId">   (Optional) Identifier for the user. </param>
+        </member>
+        <member name="M:FessooFramework.Objects.Data.EntityObject._Remove">
+             <summary>   Removes this object. Помечает объект удаленным. </summary>
+            
+             <remarks>   AM Kozhevnikov, 24.01.2018. </remarks>
+        </member>
+        <member name="T:FessooFramework.Objects.ALM.ALMObject`1">
+             <summary>   An alm object.
+                         Объект с управляемым жизненным циклом </summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+            
+             <typeparam name="TEnumState">   Type of the enum state. </typeparam>
+        </member>
+        <member name="P:FessooFramework.Objects.ALM.ALMObject`1.state">
+            <summary>   The state.
+                        Поле которое сохраняется в базу </summary>
+        </member>
+        <member name="P:FessooFramework.Objects.ALM.ALMObject`1.State">
+             <summary>   Gets or sets the state.
+                         Текущее состояние объекта </summary>
+            
+             <value> The state. </value>
+        </member>
+        <member name="M:FessooFramework.Objects.ALM.ALMObject`1._SetState(`0)">
+             <summary>   Sets a state.
+                         Изменяем состояние объекта </summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+            
+             <exception cref="T:System.Exception">    Thrown when an exception error condition occurs. </exception>
+            
+             <param name="newState"> State of the new. </param>
+        </member>
+        <member name="M:FessooFramework.Objects.ALM.ALMObject`1._StateChanged(`0,`0)">
+             <summary>   State changed.
+                         Состояние объекта было изменено </summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.ALM.ALMObject`1.StateConfiguration">
+             <summary>   Enumerates state configuration in this collection.
+                         Получаем список настроек переходов объекта в другие состояния</summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+            
+             <returns>
+             An enumerator that allows foreach to be used to process state configuration in this
+             collection.
+             </returns>
+        </member>
+        <member name="M:FessooFramework.Objects.ALM.ALMObject`1._StateConfiguration">
+             <summary>   State configuration.
+                         Настройка конфигурации для измения состояни жизненного цикла </summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+            
+             <param name="list"> [in,out] The list. </param>
+        </member>
+        <member name="M:FessooFramework.Objects.ALM.ALMObject`1.StateCheck(`0,`0)">
+             <summary>   State check.
+                         Проверка перехода из одного состояния в новое </summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+            
+             <exception cref="T:System.Exception">    Thrown when an exception error condition occurs. </exception>
+            
+             <param name="oldState"> State of the old. </param>
+             <param name="newState"> State of the new. </param>
+            
+             <returns>   True if it succeeds, false if it fails. </returns>
+        </member>
+        <member name="T:FessooFramework.Objects.ALM.ALMConf`1">
+             <summary>   An alm state configuration. </summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+            
+             <typeparam name="TEnumState">   Type of the enum state. </typeparam>
+        </member>
+        <member name="M:FessooFramework.Objects.ALM.ALMConf`1.#ctor(`0,System.Collections.Generic.IEnumerable{`0})">
+             <summary>   Constructor. </summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+            
+             <param name="state">        The state. </param>
+             <param name="nextState">    State of the next. </param>
+        </member>
+        <member name="P:FessooFramework.Objects.ALM.ALMConf`1.State">
+             <summary>   Gets the state. </summary>
+            
+             <value> The state. </value>
+        </member>
+        <member name="P:FessooFramework.Objects.ALM.ALMConf`1.NextState">
+             <summary>   Gets the state of the next. </summary>
+            
+             <value> The next state. </value>
+        </member>
+        <member name="M:FessooFramework.Objects.ALM.ALMConf`1.New(`0,System.Collections.Generic.IEnumerable{`0})">
+             <summary>   Create new ALMStateConfiguration. </summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+            
+             <param name="state">        The state. </param>
+             <param name="nextState">    State of the next. </param>
+            
+             <returns>   An ALMStateConfiguration&lt;TEnumState&gt; </returns>
+        </member>
+        <member name="T:FessooFramework.Objects.SystemComponentMulti`2">
+             <summary>   A system component multi.
+                         Системный компонет поддерживающий множественную реализацию </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+            
+             <typeparam name="TElement">     Type of the element. </typeparam>
+             <typeparam name="TElementEnum"> Type of the element enum. </typeparam>
+        </member>
+        <member name="F:FessooFramework.Objects.SystemComponentMulti`2.Container">
+            <summary>
+            Контейнер с реализациями 
+            </summary>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponentMulti`2.GetElement(`1)">
+            <summary>
+            TODO Документация
+            </summary>
+            <param name="itemType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponentMulti`2.GetAll">
+            <summary>
+            TODO Документация
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponentMulti`2._2_Configuring">
+             <summary>   Configurings this object. </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponentMulti`2._5_Launching">
+             <summary>   Launchings this object. </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponentMulti`2._6_Unload">
+             <summary>   Complitings this object. Работа с модулем была завершена. </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponentMulti`2._1_ElementAdd(System.Collections.Generic.List{`0}@)">
+             <summary>   Element add. </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+            
+             <param name="elements"> [in,out] The elements. </param>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponentMulti`2._2_ElementConfigurated(`0@)">
+             <summary>   Element configurated. </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+            
+             <param name="element">  [in,out] The element. </param>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponentMulti`2._3_Loaded">
+             <summary>  Loaded this object. </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponentMulti`2._4_Testing">
+             <summary>   Case testing. </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+            
+             <param name="cases">    [in,out] The cases. </param>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponentMulti`2._5_Run">
+             <summary>   Runs this object. </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponentMulti`2._99_Unload">
+             <summary>   Finalize this object.
+                         Вызывается перед Dispose - сохраняем необходимые параметры и фиксируем аналитические данные</summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+        </member>
+        <member name="P:FessooFramework.Objects.SourceData.DataSourceBase.Types">
+             <summary>   Gets or sets the types.
+                         Список DbSet'ов в контексте </summary>
+            
+             <value> The types. </value>
+        </member>
+        <member name="M:FessooFramework.Objects.SourceData.DataSourceBase.GetDbSetTypes">
+             <summary>   Gets the database set types in this collection. </summary>
+            
+             <remarks>   AM Kozhevnikov, 05.02.2018. </remarks>
+            
+             <returns>
+                 An enumerator that allows foreach to be used to process the database set types in this
+                 collection.
+             </returns>
+        </member>
+        <member name="M:FessooFramework.Objects.SourceData.DataSourceBase.CheckType``1">
+             <summary>   Determines if we can check type. </summary>
+            
+             <remarks>   AM Kozhevnikov, 05.02.2018. </remarks>
+            
+             <returns>   True if it succeeds, false if it fails. </returns>
+        </member>
+        <member name="M:FessooFramework.Objects.SourceData.DataSourceBase.DbSet``1">
+             <summary>   Database set. </summary>
+            
+             <remarks>   AM Kozhevnikov, 05.02.2018. </remarks>
+            
+             <typeparam name="T">    Generic type parameter. </typeparam>
+            
+             <returns>   A DbSet&lt;T&gt; </returns>
+        </member>
+        <member name="T:FessooFramework.Objects.SourceData.DataContextStore">
+             <summary>   A data source store.
+                         Источник данных </summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SourceData.DataContextStore.Add``1">
+             <summary>   Adds. Добавить контекст данных, при кастомном DCTContext или при инициализации копии базового _DCTContext  </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <typeparam name="T">    Generic type parameter. </typeparam>
+        </member>
+        <member name="M:FessooFramework.Objects.SourceData.DataContextStore.SaveChanges">
+             <summary>   Saves the changes. Сохраняет изменения во всех контекстах данных прошедших инициализацию</summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SourceData.DataContextStore.Dispose">
+             <summary>
+                 Вызывает очистку у всех инициализированных контекстах
+             
+                 Обертка для IDisposable.Dispose в SystemObject Создана для возможности очистки объекта во
+                 всех наследуемых сущностях
+                 
+                 Выполняет определяемые приложением задачи, связанные с удалением, высвобождением или
+                 сбросом неуправляемых ресурсов.
+             </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SourceData.DataContextStore.Context``1">
+             <summary>   Gets the context. Получение DbContext по типу </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <typeparam name="T">    Generic type parameter. </typeparam>
+            
+             <returns>   A T. </returns>
+        </member>
+        <member name="M:FessooFramework.Objects.SourceData.DataContextStore.DbSet``1">
+             <summary>   Database set. Получение DbSet по модели данных </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <throwses cref="T:System.Exception"> Thrown when an exception error condition occurs. </throwses>
+            
+             <typeparam name="T">    Generic type parameter. </typeparam>
+            
+             <returns>   A DbSet&lt;T&gt; </returns>
+        </member>
+        <member name="T:FessooFramework.Objects.SystemState">
+             <summary>   Values that represent system object states. </summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+        </member>
+        <member name="T:FessooFramework.Objects.BaseObject">
+             <summary>   A base object. A class that inherits all objects in the system  </summary>
+            
+             <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+        </member>
+        <member name="P:FessooFramework.Objects.BaseObject.Id">
+             <summary>   Gets or sets the identifier. </summary>
+            
+             <value>  The identifier. Default value <see cref="M:System.Guid.NewGuid"/></value>
+        </member>
+        <member name="P:FessooFramework.Objects.BaseObject.CreateDate">
+             <summary>   Gets or sets the create date. </summary>
+            
+             <value> The create date. Default value <see cref="P:System.DateTime.Now"/> </value>
+        </member>
+        <member name="M:FessooFramework.Objects.BaseObject.#ctor">
+             <summary>   Default constructor. Fills in the identifier and create date</summary>
+            
+             <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+        </member>
+        <member name="T:FessooFramework.Objects.SystemComponent">
+             <summary>   A component object.
+                         Компонент системы - настройка компонента логики и залог жизненного цикла блока. Главное отличие об SystemObject - реагирует на изменение состояния изменения системы и имеет такое же состояние
+                         
+                         
+                         Расширяемый за счёт частей реализующих интерфейс базового модуля, с возможностью отключения базовых частей и полной замены.
+                         В случае реализации нескольких частей возможен множественный вызов и управление приоритетом выполнения
+                         
+                         Основная задача модуля - выработка систематичного подхода к реализации компонентов системы с жизненным циклом
+                         
+                         Жизненный цикл модуля:
+                         - None - не был создан
+                         - Created - успешно выполнил конструктор
+                         - Initialized - успешно прошёл инициализацию, в инициализацию входит базовые настройки всего модуля, значение по умолчанию и настройки по умолчанию
+                         - Configured - базовая настройка блока - вызов Default метода
+                         - Loaded - загрузка данных для блока, к примеру с сервера  
+                         - Testing - кейсы компонента системы, выполняются под DEBUG
+                         - Launched - запуск процессов не обходимы для работу блока  
+                         - Complete - модуль завершил работу, принудительно или планово
+                         
+                         Второстепенная цель которую преследует модульность - простая, понятная и расширяемая структура кода:
+                         - Глобальные настройки модулей в одном месте  
+                         - Реализации модулей в одном месте  
+                         - Компоненты модулей в одном месте </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+        </member>
+        <member name="P:FessooFramework.Objects.SystemComponent._Name">
+             <summary>   Gets the name.
+                         Уникальное имя модуля</summary>
+            
+             <value> The name. </value>
+        </member>
+        <member name="P:FessooFramework.Objects.SystemComponent._IsEnable">
+             <summary>   Gets or sets a value indicating whether this object is enable. </summary>
+            
+             <value> True if this object is enable, false if not. </value>
+        </member>
+        <member name="P:FessooFramework.Objects.SystemComponent._Priority">
+             <summary>   Gets or sets the priority.
+                         Приоритет загрузки модуля </summary>
+            
+             <value> The priority. </value>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponent.#ctor">
+             <summary>   Default constructor.
+                         Первый шаг жизненного цикла модуля - Create </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponent.ToInfo">
+             <summary>   Converts this object to an information. </summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponent._1_Initialization">
+             <summary>   Второй шаг настройки модуля(Create первый) - в инициализацию входит базовые настройки модуля, установка значений и настроек по умолчанию</summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponent._2_Configuring">
+             <summary>   Configurings this object.
+                         Настройка текущего модуля - наложение кастомных настроек и подписки глобальных настроек </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponent._3_Loaded">
+             <summary>   Loadings this object.
+                          Загрузка данных для объекта и обработка данных </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponent._4_Testing">
+             <summary>   Testing this object.
+                         Проверка компонента на определённые условия - в будующем в этом месте требуется подключение модуля динамической отладки с выводом предпреждений </summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponent._5_Launching">
+             <summary>   Launchings this object. </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemComponent._6_Unload">
+             <summary>   Complitings this object. 
+                         Работа с модулем была завершена</summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+        </member>
+        <member name="T:FessooFramework.Objects.SystemObject">
+             <summary>   A system object. 
+                         Основной объект системы</summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemObject.#ctor">
+             <summary>   Default constructor. </summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemObject.Default">
+             <summary>   Defaults this object.
+                         Приводит данный объект к исходному состоянию
+                         </summary>
+            
+             <remarks>   AM Kozhevnikov, 22.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemObject.Initialization">
+             <summary>   Initializations this object.
+                         Нижний уровень инициализации объекта</summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemObject._3_Loaded">
+             <summary>   Loaded this object. </summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemObject._4_Testing">
+             <summary>   Testings this object. </summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemObject._6_Unload">
+             <summary>   Unloaded this object. </summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemObject.Finalize">
+             <summary>   Finaliser.
+                         При очистке объекта отправляет его в ObjectHelper.Dispose</summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemObject.Dispose">
+             <summary>
+             Обертка для IDisposable.Dispose в SystemObject
+             Создана для возможности очистки объекта во всех наследуемых сущностях
+             
+             Выполняет определяемые приложением задачи, связанные с удалением, высвобождением или сбросом
+             неуправляемых ресурсов.
+             </summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemObject.System#IDisposable#Dispose">
+             <summary>
+             Выполняет определяемые приложением задачи, связанные с удалением, высвобождением или сбросом
+             неуправляемых ресурсов.
+             </summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemObject._StateChanged(FessooFramework.Objects.SystemState,FessooFramework.Objects.SystemState)">
+             <summary>   State changed. Состояние объекта было изменено. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <param name="newState"> State of the new. </param>
+             <param name="oldState"> State of the old. </param>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemObject._StateConfiguration">
+             <summary>
+                 State configuration. Настройка конфигурации для измения состояни жизненного цикла.
+             </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <returns>
+                 An enumerator that allows foreach to be used to process state configuration in this
+                 collection.
+             </returns>
+        </member>
+        <member name="M:FessooFramework.Objects.SystemObject.Testing">
+             <summary>
+                 Testing this object. Проверка компонента на определённые условия - в будующем в этом
+                 месте требуется подключение модуля динамической отладки с выводом предпреждений.
+             </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+        </member>
+        <member name="T:FessooFramework.Objects.TestingCase">
+             <summary>   A testing case. Кейс тестирования объекта </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+        </member>
+        <member name="P:FessooFramework.Objects.TestingCase.ComponentCase">
+             <summary>   Gets or sets the component case.
+                         Логика тестирования объекта, должен вернуть False если проверка не пройдена </summary>
+            
+             <value> The component case. </value>
+        </member>
+        <member name="P:FessooFramework.Objects.TestingCase.Description">
+             <summary>   Gets or sets the description. Описание кейса для логгера</summary>
+            
+             <value> The description. </value>
+        </member>
+        <member name="M:FessooFramework.Objects.TestingCase.#ctor(System.String,System.Func{System.Boolean})">
+             <summary>   Constructor.  </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <param name="description">      The description. Описание кейса для логгера </param>
+             <param name="componentCase">    The component case.  Логика тестирования объекта, должен вернуть False если проверка не пройдена </param>
+        </member>
+        <member name="M:FessooFramework.Objects.TestingCase.New(System.String,System.Func{System.Boolean})">
+             <summary>   News. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <param name="description">      The description. Описание кейса для логгера </param>
+             <param name="componentCase">    The component case.  Логика тестирования объекта, должен
+                                             вернуть False если проверка не пройдена. </param>
+            
+             <returns>   A TestingCase. </returns>
+        </member>
+        <member name="T:FessooFramework.Tools.Controllers.ActionController">
+             <summary>   A controller for handling actions.
+                         Расширяет возможность Action с помощью очереди выполения и приоретета </summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+        </member>
+        <member name="F:FessooFramework.Tools.Controllers.ActionController.dict">
+            <summary>   The dictionary. </summary>
+        </member>
+        <member name="M:FessooFramework.Tools.Controllers.ActionController.Set(System.Action,System.Int32)">
+            <summary>
+            Метод добавляет событие в список выполнения 
+            С возможностью указать приоритет выполения и отлова ошибки в каждом отдельном методе вызова
+            Чем выше значение приоритета тем раньше будет выполенен метод
+            </summary>
+            <param name="action"></param>
+            <param name="priority"></param>
+        </member>
+        <member name="M:FessooFramework.Tools.Controllers.ActionController.Remove(System.Action)">
+            <summary>
+            Метод удаляет подписка на событие 
+            </summary>
+            <param name="action"></param>
+            <param name="priority"></param>
+        </member>
+        <member name="M:FessooFramework.Tools.Controllers.ActionController.Dispose">
+             <summary>
+                 Обертка для IDisposable.Dispose в SystemObject Создана для возможности очистки объекта во
+                 всех наследуемых сущностях
+                 
+                 Выполняет определяемые приложением задачи, связанные с удалением, высвобождением или
+                 сбросом неуправляемых ресурсов.
+             </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+        </member>
+        <member name="T:FessooFramework.Tools.Controllers.ObjectController`1">
+             <summary>   A controller for handling objects. 
+                         Данный котроллер отслеживает изменния объекта и позволяет подписать событие изменения
+                         Подписка на события можно оформить перед изменением состояния объекта или сразу после этого
+                         </summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+            
+             <typeparam name="T">    Generic type parameter. </typeparam>
+        </member>
+        <member name="P:FessooFramework.Tools.Controllers.ObjectController`1.Value">
+             <summary>   Gets or sets the value.
+                         Значение объекта </summary>
+            
+             <value> The value. </value>
+        </member>
+        <member name="P:FessooFramework.Tools.Controllers.ObjectController`1.HasValue">
+             <summary>   Gets a value indicating whether this object has value. </summary>
+            
+             <value> True if this object has value, false if not. </value>
+        </member>
+        <member name="P:FessooFramework.Tools.Controllers.ObjectController`1.OnlyGet">
+             <summary>   Gets or sets a value indicating whether the only get. 
+                         Объект доступен только для чтения</summary>
+            
+             <value> True if only get, false if not. </value>
+        </member>
+        <member name="P:FessooFramework.Tools.Controllers.ObjectController`1.IsAsync">
+             <summary>   Gets or sets a value indicating whether this object is asynchronous.
+                         Асинхронно задаёт Value и вызывает события изменения </summary>
+            
+             <value> True if this object is asynchronous, false if not. </value>
+        </member>
+        <member name="P:FessooFramework.Tools.Controllers.ObjectController`1._Value">
+             <summary>   Gets or sets the value. </summary>
+            
+             <value> The value. </value>
+        </member>
+        <member name="P:FessooFramework.Tools.Controllers.ObjectController`1._DefaultValue">
+             <summary>   Gets or sets the default value. </summary>
+            
+             <value> The default value. </value>
+        </member>
+        <member name="F:FessooFramework.Tools.Controllers.ObjectController`1.Change">
+            <summary>   The change. 
+                        Подписка на событие изменения </summary>
+        </member>
+        <member name="F:FessooFramework.Tools.Controllers.ObjectController`1.PreviewChange">
+            <summary>   The preview change. 
+                        Подписка на событие перед изменение значения - позволяет воспользоваться старым значением</summary>
+        </member>
+        <member name="P:FessooFramework.Tools.Controllers.ObjectController`1.CheckValue">
+             <summary>   Gets or sets the check value.
+                         Функция проверки значения, определённая внешней логикой </summary>
+            
+             <value> The check value. </value>
+        </member>
+        <member name="P:FessooFramework.Tools.Controllers.ObjectController`1.GetValue">
+             <summary>   Gets or sets the get value.
+                         Функция объекта доступного только на чтение </summary>
+            
+             <value> The get value. </value>
+        </member>
+        <member name="M:FessooFramework.Tools.Controllers.ObjectController`1.#ctor(`0,System.Func{`0,System.Boolean},System.Boolean)">
+             <summary>   Constructor. 
+                         Конструктор инициализирует объект с возоможность Get\Set</summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+            
+             <param name="defaultValue"> . </param>
+             <param name="_CheckValue">  (Optional) The check value. </param>
+             <param name="isAsync">      (Optional) True if this object is asynchronous, false if not. </param>
+        </member>
+        <member name="M:FessooFramework.Tools.Controllers.ObjectController`1.#ctor(`0,System.Func{`0})">
+             <summary>   Constructor. Конструктор инициализирует объект только на чтение - Get. </summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+            
+             <param name="defaultValue"> . </param>
+             <param name="_GetValue">    The get value. </param>
+        </member>
+        <member name="M:FessooFramework.Tools.Controllers.ObjectController`1.SetAfterChange(System.Action,System.Int32)">
+             <summary>   Sets after change. </summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+            
+             <param name="action">   The action. </param>
+             <param name="priority"> (Optional) The priority. </param>
+        </member>
+        <member name="M:FessooFramework.Tools.Controllers.ObjectController`1.Clear">
+             <summary>   Clears this object to its blank/initial state.
+                         Очищает объект - присваивает значение по умолчанию переданное в конструктор</summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Tools.Controllers.ObjectController`1.ClearAsync">
+             <summary>   Clears the asynchronous.  
+                         Очищает объект - присваивает значение по умолчанию переданное в конструктор  </summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Tools.Controllers.ObjectController`1.OnlyClear">
+             <summary>   Only clear.
+                         Очищает объект - без вызова пре и пост методов </summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Tools.Controllers.ObjectController`1.Refresh">
+             <summary>   Refreshes this object. </summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Tools.Controllers.ObjectController`1.SetValueAsync(`0)">
+             <summary>   Sets value asynchronous. </summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+            
+             <param name="newValue"> . </param>
+        </member>
+        <member name="M:FessooFramework.Tools.Controllers.ObjectController`1.SetValue(`0)">
+             <summary>   Sets a value.
+                         Присвоить значение - аналог Obj.Value = newValue</summary>
+             
+             <param name="newValue"></param> 
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+            
+             <exception cref="T:System.Exception">    Thrown when an exception error condition occurs. </exception>
+            
+        </member>
+        <member name="M:FessooFramework.Tools.Controllers.ObjectController`1._ComparerValue(`0)">
+             <summary>   Comparer value.
+                         Проверяем и задаём значение в случае изменения </summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+            
+             <param name="value">    The value. </param>
+        </member>
+        <member name="M:FessooFramework.Tools.Controllers.ObjectController`1._SetValue(`0)">
+             <summary>   Sets a value.
+                         Единый метод для присвоение значения </summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+            
+             <param name="value">    The value. </param>
+        </member>
+        <member name="M:FessooFramework.Tools.Controllers.ObjectController`1.Finalize">
+             <summary>   Finaliser. </summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Tools.Controllers.ObjectController`1.ReleaseUnmanagedResources">
+             <summary>   Releases the unmanaged resources. </summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Tools.Controllers.ObjectController`1.Dispose">
+             <summary>
+             Обертка для IDisposable.Dispose в SystemObject Создана для возможности очистки объекта во
+             всех наследуемых сущностях
+             
+             Выполняет определяемые приложением задачи, связанные с удалением, высвобождением или сбросом
+             неуправляемых ресурсов.
+             </summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+        </member>
+        <member name="T:FessooFramework.Tools.Helpers.ConsoleHelper">
+             <summary>   A console helper.
+                         Для взаимодействия с консолью
+                         Помогает централизовано управлять выводом в консоль, его оформлением и публикацией при переключении debug и release
+                         </summary>
+            
+             <remarks>   AM Kozhevnikov, 19.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.ConsoleHelper.SendMessage(System.String)">
+             <summary>   Send this message.
+                         Отправка данных в консоль с настроенным форматом
+                         Работает при наличии символов условной компиляции DEBUG</summary>
+            
+             <remarks>   AM Kozhevnikov, 19.01.2018. </remarks>
+            
+             <param name="text"> The text. </param>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.ConsoleHelper.SendException(System.Reflection.MethodBase,System.String,System.Exception)">
+             <summary>   Sends an exception.
+                         Отправка информации об ошибке в консоль </summary>
+            
+             <remarks>   AM Kozhevnikov, 22.01.2018. </remarks>
+            
+             <param name="ex">   The ex. </param>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.ConsoleHelper.SendWarning(System.Reflection.MethodBase,System.String)">
+             <summary>   Sends an exception.
+                         Отправка информации об ошибке в консоль </summary>
+            
+             <remarks>   AM Kozhevnikov, 22.01.2018. </remarks>
+            
+             <param name="ex">   The ex. </param>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.ConsoleHelper.SendException(System.Exception)">
+             <summary>   Sends an exception.
+                         Отправка информации об ошибке в консоль </summary>
+            
+             <remarks>   AM Kozhevnikov, 22.01.2018. </remarks>
+            
+             <param name="ex">   The ex. </param>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.ConsoleHelper.SendException(System.String)">
+             <summary>   Sends an exception.
+                         Отправка информации об ошибке в консоль </summary>
+            
+             <remarks>   AM Kozhevnikov, 22.01.2018. </remarks>
+            
+             <param name="ex">   The ex. </param>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.ConsoleHelper.SendWarning(System.String)">
+             <summary>   Sends a warning. Отправляет предупреждение в консоль </summary>
+            
+             <remarks>   AM Kozhevnikov, 19.01.2018. </remarks>
+            
+             <param name="text"> The text. </param>
+        </member>
+        <member name="T:FessooFramework.Tools.Helpers.ContextHelper">
+             <summary>   A context helper.
+                         Управление объектами в области данных потока </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.ContextHelper.GetContext(System.String)">
+             <summary>   Gets the context.
+                         Получаем объект из потока по имени и типу
+                          </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <returns>   The context. </returns>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.ContextHelper.SetContext(System.Object,System.String)">
+             <summary>   Sets a context.
+                          Кладем объект в область данных потока по наименованию и типу
+                          </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <param name="value">    The value. </param>
+             <param name="name">    The value. </param>
+            
+             <returns>   A T. </returns>
+        </member>
+        <member name="T:FessooFramework.Tools.Helpers.CryptographyHelper">
+             <summary>   A cryptography helper.
+                         Набор инструментов для работы с криптографией </summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.CryptographyHelper.StringToSha256ByteArray(System.String)">
+             <summary>   String to sha 256 byte array.
+                         Конвертирую строку в байт массив шифрованный с помощью SHA256 </summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+            
+             <param name="text"> . </param>
+            
+             <returns>   A byte[]. </returns>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.CryptographyHelper.StringToSha256String(System.String,System.String)">
+             <summary>   Конвертирую строку в Hash строку шифрованную с помощью SHA256. </summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+            
+             <param name="login">    The login. </param>
+             <param name="pass">     The pass. </param>
+            
+             <returns>   A string. </returns>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.CryptographyHelper.StringToSha256String(System.String)">
+             <summary>   Конвертирую строку в Hash строку шифрованную с помощью SHA256. </summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+            
+             <param name="text"> . </param>
+            
+             <returns>   A string. </returns>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.CryptographyHelper.ByteToString(System.Byte[])">
+             <summary>   Byte to string.
+                         Конвертирую строку в массив в байт в строку  </summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+            
+             <param name="bytes">    The bytes. </param>
+            
+             <returns>   A string. </returns>
+        </member>
+        <member name="T:FessooFramework.Tools.Helpers.EntityHelper">
+             <summary>   An entity helper. </summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.EntityHelper.CreateConnectionString(FessooFramework.Tools.Helpers.EntityProviders,System.String,System.String,System.Boolean,System.String,System.String)">
+            <summary>
+            Создает программно строку подключения для контекста EntityFramework.
+            </summary>
+            <param name="DBName"> Name of the database.</param>
+            <param name="DBAddress">The database address.</param>
+            <param name="Login">Логин пользователя для подключении к SQL Server</param>
+            <param name="Password">Пароль для учетной записи SQL Server.</param>
+            <param name="IntegratedSecurity">Задает логическое значение, которое определяет, заданы ли в подключении идентификатор пользователя и пароль (значение false) или же для проверки подлинности используются текущие реквизиты учетной записи Windows (значение true).</param>
+            <returns></returns>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.EntityHelper.CreateDefaultSQLCE(System.String)">
+             <summary>   Creates default SQLCE.
+                         Подключение к базовой локальной базе SQLCE</summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+            
+             <param name="name"> The name. </param>
+            
+             <returns>   The new default ce. </returns>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.EntityHelper.CreateDefaultSQLite(System.String)">
+             <summary>   Creates default SQLite. </summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+            
+             <param name="DBName">   Name of the database. </param>
+            
+             <returns>   The new default sq lite. </returns>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.EntityHelper.CreateLocalSQL(System.String)">
+             <summary>   Creates default SQLCE.
+                         Подключение к базовой локальной базе MSSQL</summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+            
+             <param name="name"> The name. </param>
+            
+             <returns>   The new default ce. </returns>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.EntityHelper.CreateRemoteSQL(System.String,System.String,System.String,System.String)">
+             <summary>   Creates remote SQL.
+                         Подключение к серверу с базой MSSQL </summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+            
+             <param name="DBName">       Name of the database. </param>
+             <param name="DBAddress">    The database address. </param>
+             <param name="Login">        Логин пользователя для подключении к SQL Server. </param>
+             <param name="Password">     Пароль для учетной записи SQL Server. </param>
+            
+             <returns>   The new remote SQL. </returns>
+        </member>
+        <member name="T:FessooFramework.Tools.Helpers.EnumHelper">
+             <summary>   An enum helper.
+                         Инструменты для работы с сущностями Enum </summary>
+            
+             <remarks>   AM Kozhevnikov, 25.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.EnumHelper.GetValue``1(System.Int32)">
+             <summary>   Gets a value.
+                         Конвертация int в указанные тип Enum</summary>
+            
+             <remarks>   AM Kozhevnikov, 25.01.2018. </remarks>
+            
+             <typeparam name="T">    Generic type parameter. </typeparam>
+             <param name="value">    The value. </param>
+            
+             <returns>   The value. </returns>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.EnumHelper.GetValue``1(System.String)">
+             <summary>   Gets a value. Конвертация string в указанные тип Enum. </summary>
+            
+             <remarks>   AM Kozhevnikov, 25.01.2018. </remarks>
+            
+             <typeparam name="T">    Generic type parameter. </typeparam>
+             <param name="value">    The value. </param>
+            
+             <returns>   The value. </returns>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.EnumHelper.GetDescription(System.Enum)">
+             <summary>   An Enum extension method that gets a description.
+                         Получение описание из указанное значение Enum </summary>
+            
+             <remarks>   AM Kozhevnikov, 25.01.2018. </remarks>
+            
+             <param name="value">    The value. </param>
+            
+             <returns>   The description. </returns>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.EnumHelper.IsValueExistForEnum``1(System.String)">
+             <summary>   Query if 'description' is value exist for enum.
+                         Провекка наличия описания у Enum </summary>
+            
+             <remarks>   AM Kozhevnikov, 25.01.2018. </remarks>
+            
+             <typeparam name="T">    Generic type parameter. </typeparam>
+             <param name="description">  The description. </param>
+            
+             <returns>   True if value exist for enum, false if not. </returns>
+        </member>
+        <member name="T:FessooFramework.Tools.Helpers.LoggerFileHelper">
+             <summary>   A file logger helper.
+                         Логгирование данных в файл, определяется путь и остальные  </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+        </member>
+        <member name="F:FessooFramework.Tools.Helpers.LoggerFileHelper.LockAdd">
+            <summary>   The lock add. </summary>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.LoggerFileHelper.AddText(System.String,System.String,System.String,System.String)">
+             <summary>    Adds a text. </summary>
+            
+             <remarks>    Fess59, 26.01.2018. </remarks>
+            
+             <param name="directory"> Pathname of the directory. </param>
+             <param name="filename">  Filename of the file. Имя файла, без расширения - "ГлавноеОкно" </param>
+             <param name="message">   The message. Текстовое сообщение </param>
+             <param name="type">      The type. Тип сообщения - "Ошибка", "Информация", "Предупреждение"  </param>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.LoggerFileHelper.LogInformation(System.String,System.String,System.String)">
+             <summary>   Logs an information.
+                         Логирование сообщений </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <param name="directory">    Pathname of the directory. </param>
+             <param name="filename">     Filename of the file. Имя файла, без расширения - "ГлавноеОкно". </param>
+             <param name="message">      The message. Текстовое сообщение. </param>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.LoggerFileHelper.LogException(System.String,System.String,System.String)">
+             <summary>   Logs an exception.
+                         Логирование ошибок </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <param name="directory">    Pathname of the directory. </param>
+             <param name="filename">     Filename of the file. Имя файла, без расширения - "ГлавноеОкно". </param>
+             <param name="message">      The message. Текстовое сообщение. </param>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.LoggerFileHelper.LogException(System.String,System.String,System.Exception)">
+             <summary>   Logs an exception. Логирование ошибок. </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <param name="directory">    Pathname of the directory. </param>
+             <param name="filename">     Filename of the file. Имя файла, без расширения - "ГлавноеОкно". </param>
+             <param name="message">      The message. Текстовое сообщение. </param>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.LoggerFileHelper.LogWarning(System.String,System.String,System.String)">
+             <summary>   Logs a warning.
+                         Логирование предупреждений </summary>
+            
+             <remarks>   Fess59, 26.01.2018. </remarks>
+            
+             <param name="directory">    Pathname of the directory. </param>
+             <param name="filename">     Filename of the file. Имя файла, без расширения - "ГлавноеОкно". </param>
+             <param name="message">      The message. Текстовое сообщение. </param>
+        </member>
+        <member name="T:FessooFramework.Tools.Helpers.ObjectHelper">
+             <summary>   An object helper.
+                         Набор инструментов для рыботы с объектами </summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.ObjectHelper.Dispose(System.Object)">
+             <summary>
+             Releases the unmanaged resources used by the FessooFramework.Tools.Helpers.ObjectHelper and
+             optionally releases the managed resources.
+             Если объект является Task и он в сотоянии RanToCompletion / Canceled / Faulted, то объект пройдёт процесс Dispose
+             </summary>
+            
+             <remarks>   AM Kozhevnikov, 23.01.2018. </remarks>
+            
+             <param name="obj">  The object. </param>
+        </member>
+        <member name="T:FessooFramework.Tools.Helpers.SerializationHelper">
+             <summary>   A serialization helper.
+                         Набор инструментов для сериализации данных </summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.SerializationHelper.ToModel``1(System.String)">
+             <summary>   A string extension method that converts an XML to a model.
+                         Конвертирую строку(XML) в модель данных </summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+            
+             <typeparam name="T">    Generic type parameter. </typeparam>
+             <param name="xml">  The XML to act on. </param>
+            
+             <returns>   XML as a T. </returns>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.SerializationHelper.ToString``1(``0,System.String)">
+             <summary>
+                 A T extension method that convert this object into a string representation.
+                 Конвертирую модель в строку
+             </summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+            
+             <typeparam name="T">    Generic type parameter. </typeparam>
+             <param name="model">    Модель. </param>
+             <param name="rootName"> (Optional) Name of the root. </param>
+            
+             <returns>   The given data converted to a string. </returns>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.SerializationHelper.ToFile(System.Object,System.String,System.String)">
+             <summary>   Converts this object to a file.
+                         Сериализует класс в файл. Файл сохраняется по указанному пути. Если файл или путь не существуют - они будут созданы. В случае существования файла он будет перезаписан. </summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+            
+             <param name="model">    Модель. </param>
+             <param name="path">     Путь в формате  - "C:\". </param>
+             <param name="name">     Имя файла в формате - "test". </param>
+        </member>
+        <member name="M:FessooFramework.Tools.Helpers.SerializationHelper.ToModelFromFile``1(System.Object,System.String,System.String)">
+             <summary>   Converts this object to a model from file.
+                         Десериализует файл по указанному пути в класс</summary>
+            
+             <remarks>   AM Kozhevnikov, 31.01.2018. </remarks>
+            
+             <throwses cref="T:System.IO.DirectoryNotFoundException">
+                 Thrown when the requested directory is not present.
+             </throwses>
+            
+             <typeparam name="T">    Generic type parameter. </typeparam>
+             <param name="model">    Модель. </param>
+             <param name="path">     Путь в формате  - "C:\". </param>
+             <param name="name">     Имя файла в формате - "test". </param>
+            
+             <returns>   The given data converted to a T. </returns>
+        </member>
+        <member name="T:FessooFramework.Tools.IOC.IOContainer`1">
+             <summary>   An i/o container. </summary>
+            
+             <remarks>   AM Kozhevnikov, 05.02.2018. </remarks>
+            
+             <typeparam name="T">    Generic type parameter. </typeparam>
+        </member>
+        <member name="F:FessooFramework.Tools.IOC.IOContainer`1.Collection">
+            <summary>   The collection of IOC elements. </summary>
+        </member>
+        <member name="P:FessooFramework.Tools.IOC.IOContainer`1.ContainerName">
+             <summary>   Gets or sets the name of the container. </summary>
+            
+             <value> The name of the container. </value>
+        </member>
+        <member name="M:FessooFramework.Tools.IOC.IOContainer`1.#ctor(System.Boolean)">
+             <summary>   Default constructor of IOC container. </summary>
+            
+             <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Tools.IOC.IOContainer`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+             <summary>   Constructor of IOC container with the help of elements list. </summary>
+            
+             <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+            
+             <param name="elements"> The elements of IOC container - <see cref="!:T" /> . </param>
+        </member>
+        <member name="M:FessooFramework.Tools.IOC.IOContainer`1.GetByName(System.String)">
+             <summary>   Gets <see cref="!:T" /> by UID. Аргумент autoCreate отвечает за создание элемента если он не был найден</summary>
+            
+             <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+            
+             <param name="uid">  The UID of IOC element. </param>
+             <param name="autoCreate"> If True - UID not found enable, else False - UID not found disable and excute Create method). </param>
+            
+             <returns>   The by name. </returns>
+        </member>
+        <member name="M:FessooFramework.Tools.IOC.IOContainer`1.GetAll">
+             <summary>   Gets all items in this collection.
+                         Получаем все объекты для обработки </summary>
+            
+             <remarks>   AM Kozhevnikov, 29.01.2018. </remarks>
+            
+             <returns>
+             An enumerator that allows foreach to be used to process all items in this collection.
+             </returns>
+        </member>
+        <member name="M:FessooFramework.Tools.IOC.IOContainer`1.Add(`0)">
+             <summary>   Adds IOC element in container. </summary>
+            
+             <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+            
+             <param name="element">  The element to add. </param>
+        </member>
+        <member name="M:FessooFramework.Tools.IOC.IOContainer`1.AddRange(System.Collections.Generic.IEnumerable{`0})">
+             <summary>   Adds IOC element collection in container. </summary>
+            
+             <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+            
+             <exception cref="!:ExceptionFlowIOContainer"> Thrown when an IOC element with the specified UID has already been added. </exception>
+            
+             <param name="collection">   The collection of IOC elements. </param>
+        </member>
+        <member name="M:FessooFramework.Tools.IOC.IOContainer`1.Create(System.String)">
+             <summary>   Creates a new T.
+                         Создание нового элемента для контейнера если он отсутсвует в контейнере </summary>
+            
+             <remarks>   AM Kozhevnikov, 05.02.2018. </remarks>
+            
+             <param name="uid">  The UID of IOC element. </param>
+            
+             <returns>   A T. </returns>
+        </member>
+        <member name="M:FessooFramework.Tools.IOC.IOContainer`1.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+             <summary>   Enumerates where in this collection. </summary>
+            
+             <remarks>   AM Kozhevnikov, 05.02.2018. </remarks>
+            
+             <param name="predicate">    The predicate. </param>
+            
+             <returns>
+                 An enumerator that allows foreach to be used to process where in this collection.
+             </returns>
+        </member>
+        <member name="T:FessooFramework.Tools.IOC._IOCElementEnum`1">
+             <summary>   An IOC element.
+                         Элемент контейнера с привязкой UID к Enum</summary>
+            
+             <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+        </member>
+        <member name="P:FessooFramework.Tools.IOC._IOCElementEnum`1.UIDEnum">
+             <summary>    Gets or sets the UID enum.
+                          Реализация UID c использованием Enum </summary>
+            
+             <value>  The UID enum. </value>
+        </member>
+        <member name="M:FessooFramework.Tools.IOC._IOCElementEnum`1.#ctor(`0)">
+             <summary>   Constructor. </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+            
+             <param name="type"> The type. </param>
+        </member>
+        <member name="T:FessooFramework.Tools.IOC._IOCElement">
+             <summary>   An IOC element. </summary>
+            
+             <remarks>   AM Kozhevnikov, 11.01.2018. </remarks>
+        </member>
+        <member name="P:FessooFramework.Tools.IOC._IOCElement.UID">
+             <summary>    Gets or sets the UID. </summary>
+            
+             <value>  The UID of IOC element. </value>
+        </member>
+        <member name="P:FessooFramework.Tools.IOC._IOCElement.HasEnable">
+             <summary>   Gets or sets a value indicating whether this object is enable. 
+                         Отключает работу компонента, используется для управления множеством реализаций или временным отключением блока кода
+                         </summary>
+            
+             <value> True if this object is enable, false if not. </value>
+        </member>
+        <member name="M:FessooFramework.Tools.IOC._IOCElement.#ctor">
+             <summary>   Default constructor. </summary>
+            
+             <remarks>   AM Kozhevnikov, 30.01.2018. </remarks>
+        </member>
+        <member name="T:FessooFramework.Tools.Repozitory.DataComponent">
+             <summary>   A data component.
+                         Компонент определяет базовые методы для работы с со списками
+                          </summary>
+            
+             <remarks>   Fess59, 02.02.2018. </remarks>
+            
+             <typeparam name="TModel">   Type of the model. </typeparam>
+        </member>
+        <member name="P:FessooFramework.Tools.Repozitory.DataComponent.CurrentType">
+             <summary>   Gets or sets the type of the current.
+                         Тип текущего компоненнта данных </summary>
+            
+             <value> The type of the current. </value>
+        </member>
+        <member name="M:FessooFramework.Tools.Repozitory.DataComponent.New(System.Type)">
+             <summary>   New data component from type. </summary>
+            
+             <remarks>   Fess59, 02.02.2018. </remarks>
+            
+             <param name="type"> The type. </param>
+            
+             <returns>   A DataComponent. </returns>
+        </member>
+        <member name="M:FessooFramework.Tools.Repozitory.DataComponent.Convert``1(FessooFramework.Objects.Data.EntityObject)">
+             <summary>   Converts the given object. </summary>
+            
+             <remarks>   AM Kozhevnikov, 05.02.2018. </remarks>
+            
+             <typeparam name="TResult">  Type of the result. </typeparam>
+             <param name="obj">  The object. </param>
+            
+             <returns>   A TResult. </returns>
+        </member>
+        <member name="T:FessooFramework.Tools.Repozitory.DataContainer">
+             <summary>   A data container. </summary>
+            
+             <remarks>   AM Kozhevnikov, 06.02.2018. </remarks>
+        </member>
+        <member name="F:FessooFramework.Tools.Repozitory.DataContainer.creators">
+            <summary>   The creators. 
+                        Контейнер с преобразователями в модели</summary>
+        </member>
+        <member name="M:FessooFramework.Tools.Repozitory.DataContainer.#ctor(System.String)">
+             <summary>   Constructor. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <throwses cref="T:System.Exception"> Thrown when an exception error condition occurs. </throwses>
+            
+             <param name="text"> The text. </param>
+        </member>
+        <member name="M:FessooFramework.Tools.Repozitory.DataContainer.Convert``1(FessooFramework.Objects.Data.EntityObject)">
+             <summary>   Converts the given object. Конвертация в модель отображения или кеширования </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <throwses cref="T:System.NullReferenceException">    Thrown when a value was unexpectedly null. </throwses>
+            
+             <typeparam name="TResult">  Type of the result. </typeparam>
+             <param name="obj">  The object. </param>
+            
+             <returns>   A TResult. </returns>
+        </member>
+        <member name="P:FessooFramework.Tools.Repozitory.DataContainer.Current">
+             <summary>   Gets the current. Текущий контейнер данных для системы </summary>
+            
+             <value> The current. </value>
+        </member>
+        <member name="M:FessooFramework.Tools.Repozitory.DataContainer.getInstance">
+             <summary>   Gets the instance. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+            
+             <returns>   The instance. </returns>
+        </member>
+        <member name="T:FessooFramework.Tools.Repozitory.DataContainer.Nested">
+             <summary>   A nested. </summary>
+            
+             <remarks>   AM Kozhevnikov, 07.02.2018. </remarks>
+        </member>
+        <member name="T:FessooFramework.Tools.Repozitory.DataContainerExtension">
+             <summary>   A data container extension. </summary>
+            
+             <remarks>   Fess59, 02.02.2018. </remarks>
+        </member>
+        <member name="M:FessooFramework.Tools.Repozitory.DataContainerExtension.ToDataContainer(System.Type)">
+             <summary>   A Type extension method that converts a type to a data container. </summary>
+            
+             <remarks>   AM Kozhevnikov, 06.02.2018. </remarks>
+            
+             <param name="type"> The type to act on. </param>
+        </member>
+        <member name="M:FessooFramework.Tools.Repozitory.DataContainerExtension.GetSet``1(System.Data.Entity.DbContext)">
+             <summary>   A DbContext extension method that gets a set. </summary>
+            
+             <remarks>   AM Kozhevnikov, 06.02.2018. </remarks>
+            
+             <typeparam name="TEntity">  Type of the entity. </typeparam>
+             <param name="context">  The context to act on. </param>
+            
+             <returns>   The set. </returns>
+        </member>
+    </members>
+</doc>
